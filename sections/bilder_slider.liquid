@@ -1,0 +1,19 @@
+<div class="padding-global"><div class="container-large"><div class="intro-in-section"><div class="heading-block"><div class="subheading text-color-red">
+{{ section.settings.text_subheading }}
+</div>
+<h2 li-object="section.settings.text_heading" class="heading-style-h2">{{ section.settings.text_heading }}</h2><div><p li-object="section.settings.textarea_text">{{ section.settings.textarea_text }}</p></div><div class="li-custom w-embed"></div>
+</div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><div class="service_component">{% for block in section.blocks %}
+    {% if block.type == "service-item" %}
+                    <div li-block="Service Item" class="service_item is-img-only">
+                                    <img loading="lazy" alt="{{ block.settings.image_bild.alt }}" src="{{ block.settings.image_bild | img_url: 'master' }}" class="service_item-bg">
+
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div></div> {% schema %} {"tag":"section","name":"Bilder Slider","class":"section_service","blocks":[{"name":"Service Item","type":"service-item","settings":[{"id":"image_bild","type":"image_picker","label":"Bild"}]}],"settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"type":"html","id":"text_heading","label":"Headline","default":"Optimale Leistung f\u00fcr deine Federgabela"},{"type":"richtext","id":"textarea_text","label":"Text","default":"<p>Wir sind deine Experten f\u00fcr Federelemente. Professioneller Service f\u00fcr alle Federgabel- &amp; D\u00e4mpfermarken. Kompetente Beratung, einfache Abwicklung, schnelle Bearbeitung. In unserer Service &amp; Tuning Anfrage kannst du Leistungen individuell kombinieren. Ohne Termin, sofort los!<\/p>"},{"id":"url_button_link_2","type":"url","label":"Button-Link 2"},{"id":"text_button_text_2","type":"text","label":"Button-Text 2","default":"Service anfragen"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"Service anfragen"}],"presets":[{"name":"Bilder Slider","category":"Liquify","blocks":[{"type":"service-item"}]}]} {% endschema %}

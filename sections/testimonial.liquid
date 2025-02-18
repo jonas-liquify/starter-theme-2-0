@@ -1,0 +1,52 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="testimonial_component"><div class="swiper is-testimonial-swiper"><div class="swiper-pagination is-testimonial"><div class="swiper-prev testimonial_swiper-prev"><div class="swiper-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.9265 19.626L0.296875 9.99633L9.9265 0.366699L11.6358 2.07596L3.71539 9.99633L11.6358 17.9167L9.9265 19.626Z" fill="currentColor"></path></svg></div></div><div class="swiper-next testimonial_swiper-next"><div class="swiper-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00612 0.36623L11.6357 9.99586L2.00612 19.6255L0.296858 17.9162L8.21722 9.99586L0.296858 2.07549L2.00612 0.36623Z" fill="currentColor"></path></svg></div></div></div><div class="swiper-wrapper">{% for block in section.blocks %}
+    {% if block.type == "testimonial" %}
+                    <div li-block="Testimonial" class="swiper-slide">
+                                    
+                                    <div class="testimonial_item"><img src="{{ block.settings.image_bild | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_bild.alt }}" class="testimonial_image">
+<div class="testimonial_content"><div class="testimonial_top"><h2 class="heading-style-h2">
+{{ block.settings.text_heading }}
+</h2>
+<p>
+{{ block.settings.text_text }}
+</p>
+</div><div class="testimonial_bottom"><div class="testimonial_bottom-content"><div class="heading-style-h5">
+{{ block.settings.text_name }}
+</div>
+<div class="text-color-light-grey">
+{{ block.settings.text_job_title }}
+</div>
+</div></div></div></div>
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div><img src="{{ 'line-gradient.svg' | asset_url }}" loading="lazy" alt="" class="testimonial_line">
+</div><div class="hide w-embed w-script"><script>const swiperTestimonial = new Swiper('.is-testimonial-swiper', {
+      // Default parameters
+      slidesPerView: 1,
+      spaceBetween: 32,
+      navigation: {
+        nextEl: '.testimonial_swiper-next',
+        prevEl: '.testimonial_swiper-prev',
+      },
+      // Responsive breakpoints
+      /*breakpoints: {
+    // when window width is >= 320px
+    479: {
+     slidesPerView: 2,
+        spaceBetween: 50,
+    },
+    // when window width is >= 480px
+    767: {
+     slidesPerView: 2,
+        spaceBetween: 50,
+    },
+    // when window width is >= 640px
+    991: {
+      slidesPerView: 2,
+      spaceBetween: 50
+    }
+  },*/
+      centeredSlides: true,
+    })
+</script></div></div></div> {% schema %} {"tag":"section","name":"Testimonial","class":"section_testimonial","blocks":[{"name":"Testimonial","type":"testimonial","settings":[{"id":"image_bild","type":"image_picker","label":"Bild"},{"id":"text_heading","type":"text","label":"Heading","default":"\u201cHervorragender Service: Schnell, Professionell und Freundlich!\u201d"},{"id":"text_text","type":"text","label":"Text","default":"Ich habe eine Gabel und einen D\u00e4mpfer eingeschickt, und der Service ist wirklich erstklassig. Sogar als bei meiner Gabel etwas nicht stimmte, erhielt ich einen Anruf und wurde darauf hingewiesen, dass es etwas teurer werden k\u00f6nnte, da ein Ersatzteil eingebaut werden muss. Das war nat\u00fcrlich in Ordnung. Sehr nett, kompetent und schnell."},{"id":"text_name","type":"text","label":"Name","default":"Max Mustermann"},{"id":"text_job_title","type":"text","label":"Job Title","default":"Client job title"}]}],"presets":[{"name":"Testimonial","category":"Liquify","blocks":[{"type":"testimonial"}]}]} {% endschema %}

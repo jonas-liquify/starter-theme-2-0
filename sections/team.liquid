@@ -1,0 +1,29 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="intro-in-section"><div class="heading-block"><div class="subheading text-color-red">
+{{ section.settings.text_subheading }}
+</div>
+<h2 li-object="section.settings.text_heading" class="heading-style-h2">{{ section.settings.text_heading }}</h2><div><p li-object="section.settings.textarea_text">{{ section.settings.textarea_text }}</p></div><div class="li-custom w-embed"></div>
+</div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><div class="company_team_component">{% for block in section.blocks %}
+    {% if block.type == "unternehmen-item" %}
+                    <div li-block="Unternehmen Item" id="w-node-_9bd1fdf2-c6cf-7b07-1ce4-112398c175da-98c175d5" class="company_team_item">
+                                    <img src="{{ block.settings.image_grid_image | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_grid_image.alt }}" class="company_why_img">
+
+                                    
+                                    <div class="company_team_gradient-wrapper"><img src="{{ 'shape.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 50vw, (max-width: 991px) 37vw, 22vw" srcset="{{ 'shape-p-500.png' | asset_url }} 500w, {{ 'shape.png' | asset_url }} 679w" alt="" class="company_team_gradient-img">
+<h4 class="heading-style-h5">
+{{ block.settings.text_team_name }}
+</h4>
+<div class="text-color-light-grey">
+{{ block.settings.text_competence }}
+</div>
+</div>
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div></div> {% schema %} {"tag":"section","name":"Team","class":"section_company_team","blocks":[{"name":"Unternehmen Item","type":"unternehmen-item","settings":[{"id":"image_grid_image","type":"image_picker","label":"Grid Image"},{"id":"text_team_name","type":"text","label":"Team Name","default":"Max Mustermann"},{"id":"text_competence","type":"text","label":"Competence","default":"Spezialist f\u00fcr: Tuning"}]}],"settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"type":"html","id":"text_heading","label":"Headline","default":"Optimale Leistung f\u00fcr deine Federgabela"},{"type":"richtext","id":"textarea_text","label":"Text","default":"<p>Wir sind deine Experten f\u00fcr Federelemente. Professioneller Service f\u00fcr alle Federgabel- &amp; D\u00e4mpfermarken. Kompetente Beratung, einfache Abwicklung, schnelle Bearbeitung. In unserer Service &amp; Tuning Anfrage kannst du Leistungen individuell kombinieren. Ohne Termin, sofort los!<\/p>"},{"id":"url_button_link_2","type":"url","label":"Button-Link 2"},{"id":"text_button_text_2","type":"text","label":"Button-Text 2","default":"Service anfragen"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"Service anfragen"}],"presets":[{"name":"Team","category":"Liquify","blocks":[{"type":"unternehmen-item"}]}]} {% endschema %}

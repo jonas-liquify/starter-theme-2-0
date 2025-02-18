@@ -1,0 +1,14 @@
+<div class="choose_nav_item is-active hide"></div><div class="{% if section.settings.steps == 'first' %}choose_nav_item is-active {% else %}choose_nav_item{% endif %}"><div class="choose_nav_text">
+{{ section.settings.text_text_1 }}
+</div>
+</div><div class="{% if section.settings.steps == 'second' %}choose_nav_item is-active {% else %}choose_nav_item{% endif %}"><div class="choose_nav_text">
+{{ section.settings.text_text_2 }}
+</div>
+</div><div class="{% if section.settings.steps == 'third' %}choose_nav_item is-active {% else %}choose_nav_item{% endif %}"><div class="choose_nav_text">
+{{ section.settings.text_text_3 }}
+</div>
+</div><div class="{% if section.settings.steps == 'fourth' %}choose_nav_item is-active {% else %}choose_nav_item{% endif %}"><div class="choose_nav_text">
+{{ section.settings.text_text_4 }}
+</div>
+</div><div class="li-custom w-embed"></div>
+ {% schema %} {"tag":"section","name":"Funnel - Nav","class":"section_choose_nav","settings":[{"id":"text_text_1","type":"text","label":"Text 1","default":"1. Art W\u00e4hlen"},{"id":"text_text_2","type":"text","label":"Text 2","default":"2. Auswahl Marke"},{"id":"text_text_3","type":"text","label":"Text 3","default":"3. Auswahl Bauteil"},{"id":"text_text_4","type":"text","label":"Text 4","default":"4. kasse"},{"type":"select","id":"steps","label":"Aktiver Schritt","options":[{"value":"first","label":"First"},{"value":"second","label":"Second"},{"value":"third","label":"Third"},{"value":"fourth","label":"Fourth"}],"default":"first"}],"presets":[{"name":"Funnel - Nav","category":"Liquify","blocks":[]}]} {% endschema %}

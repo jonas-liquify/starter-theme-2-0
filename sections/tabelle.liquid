@@ -1,0 +1,67 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="blog-teaser_component"><div class="intro-in-section"><div class="heading-block"><div class="subheading text-color-red">
+{{ section.settings.text_subheading }}
+</div>
+<h2 li-object="section.settings.text_heading" class="heading-style-h2">{{ section.settings.text_heading }}</h2><div><p li-object="section.settings.textarea_text">{{ section.settings.textarea_text }}</p></div><div class="li-custom w-embed"></div>
+</div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><div><div class="blog_article_feature-table"><div class="article_feature-table_row"><div id="w-node-d21aaddf-e2e5-5d98-97b0-7d155da231dd-5da231d5" class="feature-table_top-item"><div>
+{{ section.settings.text_head_1 }}
+</div>
+</div><div id="w-node-d21aaddf-e2e5-5d98-97b0-7d155da231e0-5da231d5" class="feature-table_top-item"><div>
+{{ section.settings.text_head_2 }}
+</div>
+</div><div id="w-node-d21aaddf-e2e5-5d98-97b0-7d155da231e3-5da231d5" class="feature-table_top-item"><div>
+{{ section.settings.text_head_3 }}
+</div>
+</div>{% if section.settings.text_head_4 != blank %}    <div li-if="section.settings.text_head_4 != blank" id="w-node-_45b45d0f-cb2c-dbaa-ada1-555ccfd9f7ce-5da231d5" class="feature-table_top-item">
+    <div>
+{{ section.settings.text_head_4 }}
+</div>
+    </div>
+{% endif %}{% if section.settings.text_head_5 != blank %}    <div li-if="section.settings.text_head_5 != blank" id="w-node-a1604edb-6445-1a2c-baa8-0e45fa0b69b5-5da231d5" class="feature-table_top-item">
+    <div>
+{{ section.settings.text_head_5 }}
+</div>
+    </div>
+{% endif %}</div>{% for block in section.blocks %}
+    {% if block.type == "spalte" %}
+                    <div li-block="Spalte" class="article_feature-table_row">
+                                    
+                                    <div id="w-node-d21aaddf-e2e5-5d98-97b0-7d155da231e7-5da231d5" class="feature-table_item"><div>
+{{ block.settings.text_spalte_1 }}
+</div>
+</div>
+                                    
+                                    <div id="w-node-d21aaddf-e2e5-5d98-97b0-7d155da231ea-5da231d5" class="feature-table_item"><div>
+{{ block.settings.text_spalte_2 }}
+</div>
+</div>
+                                    
+                                    <div id="w-node-d21aaddf-e2e5-5d98-97b0-7d155da231ed-5da231d5" class="feature-table_item"><div>
+{{ block.settings.text_spalte_3 }}
+</div>
+</div>
+                                    
+                                    {% if block.settings.text_spalte_4 != blank %}    <div li-if="block.settings.text_spalte_4 != blank" id="w-node-ad83f528-4605-f6c8-cd08-ef960b581bf9-5da231d5" class="feature-table_item">
+    <div>
+{{ block.settings.text_spalte_4 }}
+</div>
+    </div>
+{% endif %}
+                                    
+                                    {% if block.settings.text_spalte_5 != blank %}    <div li-if="block.settings.text_spalte_5 != blank" id="w-node-_61d04155-0235-3d2d-c369-7d3a7ded6f67-5da231d5" class="feature-table_item">
+    <div>
+{{ block.settings.text_spalte_5 }}
+</div>
+    </div>
+{% endif %}
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div><div class="spacer-small"></div><div class="text-size-small"> {{ section.settings.richtext_tabelle_infotext }} </div>
+</div></div></div></div> {% schema %} {"tag":"section","name":"Tabelle","class":"section_tabelle","blocks":[{"name":"Spalte","type":"spalte","settings":[{"id":"text_spalte_1","type":"text","label":"Spalte 1","default":"FEATURE"},{"id":"text_spalte_2","type":"text","label":"Spalte 2","default":"+"},{"id":"text_spalte_3","type":"text","label":"Spalte 3","default":"+"},{"id":"text_spalte_4","type":"text","label":"Spalte 4","default":"+"},{"id":"text_spalte_5","type":"text","label":"Spalte 5","default":"+"}]}],"settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"type":"html","id":"text_heading","label":"Headline","default":"Optimale Leistung f\u00fcr deine Federgabela"},{"type":"richtext","id":"textarea_text","label":"Text","default":"<p>Wir sind deine Experten f\u00fcr Federelemente. Professioneller Service f\u00fcr alle Federgabel- &amp; D\u00e4mpfermarken. Kompetente Beratung, einfache Abwicklung, schnelle Bearbeitung. In unserer Service &amp; Tuning Anfrage kannst du Leistungen individuell kombinieren. Ohne Termin, sofort los!<\/p>"},{"id":"url_button_link_2","type":"url","label":"Button-Link 2"},{"id":"text_button_text_2","type":"text","label":"Button-Text 2","default":"Service anfragen"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"Service anfragen"},{"id":"text_head_1","type":"text","label":"Head 1","default":"FEATURE"},{"id":"text_head_2","type":"text","label":"Head 2","default":"PROFESSIONAL EDITION"},{"id":"text_head_3","type":"text","label":"Head 3","default":"STANDARD EDITION"},{"id":"text_head_4","type":"text","label":"Head 4","default":"STANDARD EDITION"},{"id":"text_head_5","type":"text","label":"Head 5","default":"STANDARD EDITION"},{"id":"richtext_tabelle_infotext","type":"richtext","label":"Tabelle Infotext","default":"<p>This is some text inside of a div block.<\/p>"}],"presets":[{"name":"Tabelle","category":"Liquify","blocks":[{"type":"spalte"}]}]} {% endschema %}

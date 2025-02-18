@@ -1,0 +1,24 @@
+{
+    "sections": {
+        "hero_anfrage": {
+            "type": "hero_anfrage"
+        },
+        "funnel_nav": {
+            "type": "funnel_nav"
+        },
+        "funnel_produkte": {
+            "type": "funnel_produkte"
+        },
+        "funnel_einsatzgebiet": {
+            "type": "funnel_einsatzgebiet"
+        }
+    },
+    "layout": "collection.anfrage-marke",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero_anfrage",
+        "funnel_nav",
+        "funnel_produkte",
+        "funnel_einsatzgebiet"
+    ]
+}

@@ -1,0 +1,14 @@
+<div class="padding-global padding-section-small"><div class="container-large"><div class="shop_category_component"><div class="shop_category_max-width"><h2 class="heading-style-h3 text-style-no-caps text-weight-semibold">
+{{ section.settings.text_heading }}
+</h2>
+</div>{% for block in section.blocks %}
+    {% if block.type == "category" %}
+                    <div li-block="category" class="shop_category_item">
+                                    
+                                    <a href="{{ block.settings.url_link }}" class="shop_category_link w-inline-block"> <div class="shop_category_img-wrapper"><img src="{{ block.settings.image_image | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_image.alt }}" class="shop_category_img"></div><div class="text-size-medium text-weight-medium">{{ block.settings.text_name }}</div> </a>
+
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div></div> {% schema %} {"tag":"section","name":"Shop Category","class":"section_shop_category","blocks":[{"name":"category","type":"category","settings":[{"id":"url_link","type":"url","label":"Link"},{"id":"image_image","type":"image_picker","label":"Image"},{"id":"text_name","type":"text","label":"Name","default":"Kategorie 1"}]}],"settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Heading"}],"presets":[{"name":"Shop Category","category":"Liquify","blocks":[{"type":"category"}]}]} {% endschema %}

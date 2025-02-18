@@ -1,0 +1,36 @@
+{
+    "sections": {
+        "hero_2": {
+            "type": "hero_2"
+        },
+        "content": {
+            "type": "content"
+        },
+        "content_2": {
+            "type": "content_2"
+        },
+        "about_1": {
+            "type": "about_1"
+        },
+        "prozess": {
+            "type": "prozess"
+        },
+        "blog_teaser": {
+            "type": "blog_teaser"
+        },
+        "faq": {
+            "type": "faq"
+        }
+    },
+    "layout": "page.service",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero_2",
+        "content",
+        "content_2",
+        "about_1",
+        "prozess",
+        "blog_teaser",
+        "faq"
+    ]
+}

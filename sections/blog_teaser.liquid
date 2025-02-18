@@ -1,0 +1,17 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="blog-teaser_component"><div class="intro-in-section"><div class="heading-block"><div class="subheading text-color-red">
+{{ section.settings.text_subheading }}
+</div>
+<h2 li-object="section.settings.text_heading" class="heading-style-h2">{{ section.settings.text_heading }}</h2><div><p li-object="section.settings.textarea_text">{{ section.settings.textarea_text }}</p></div><div class="li-custom w-embed"></div>
+</div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><div class="blog-teaser_grid">{% assign blog = blogs[section.settings.blog_blog] %}
+{% for article in blog.articles limit: section.settings.post_limit_blog %}
+<div id="w-node-b11583a5-d717-6838-93fe-d27a8756361d-87563617">
+<div id="w-node-f4d33577-9485-bbdf-7c42-8b068e2e1823-8e2e1823" class="blog-teaser_item"><a li-object:href="article.url" href="{{ article.url }}" class="blog-teaser_link w-inline-block"><div class="blog-teaser_img-wrapper"><img src="{{ article.image | img_url: 'master' }}" loading="lazy" li-object:src="article.image | img_url: 'master'" li-object:alt="article.image.alt" alt="{{ article.image.alt }}" class="blog-teaser_img">
+</div><div class="blog-teaser_bottom"><h3 li-object="article.title" class="heading-style-h4">{{ article.title }}</h3></div><p li-object="article.excerpt_or_content | truncate: 60" class="blog-teaser_p">{{ article.excerpt_or_content | truncate: 60 }}</p></a></div></div>
+{% endfor %}
+</div></div></div></div> {% schema %} {"tag":"section","name":"Blog Teaser","class":"section_blog-teaser","settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"type":"html","id":"text_heading","label":"Headline","default":"Optimale Leistung f\u00fcr deine Federgabela"},{"type":"richtext","id":"textarea_text","label":"Text","default":"<p>Wir sind deine Experten f\u00fcr Federelemente. Professioneller Service f\u00fcr alle Federgabel- &amp; D\u00e4mpfermarken. Kompetente Beratung, einfache Abwicklung, schnelle Bearbeitung. In unserer Service &amp; Tuning Anfrage kannst du Leistungen individuell kombinieren. Ohne Termin, sofort los!<\/p>"},{"id":"url_button_link_2","type":"url","label":"Button-Link 2"},{"id":"text_button_text_2","type":"text","label":"Button-Text 2","default":"Service anfragen"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"Service anfragen"},{"id":"blog_blog","type":"blog","label":"Blog"},{"id":"post_limit_blog","type":"range","label":"Posts Blog","min":1,"max":100,"step":1,"default":3}],"presets":[{"name":"Blog Teaser","category":"Liquify","blocks":[]}]} {% endschema %}

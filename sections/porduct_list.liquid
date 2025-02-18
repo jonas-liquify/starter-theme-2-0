@@ -1,0 +1,11 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="select_top"><h2 class="heading-style-h3 text-style-no-caps text-weight-semibold">
+{{ section.settings.text_heading }}
+</h2>
+</div><div class="select_component">{% for product in section.settings.product_list %}    <div li-for="product in section.settings.product_list" id="w-node-_52c0a2ab-0c4a-a31b-6ef0-d7edeae5facc-440e2ebe">
+                                    
+                            {% render 'product_item', product: product %}
+
+                            
+                        </div>
+{% endfor %}</div></div></div><div class="li-custom w-embed"></div>
+ {% schema %} {"tag":"section","name":"Porduct List","class":"section_select","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Heading"},{"type":"product_list","id":"product_list","label":"Products"}],"presets":[{"name":"Porduct List","category":"Liquify","blocks":[]}]} {% endschema %}

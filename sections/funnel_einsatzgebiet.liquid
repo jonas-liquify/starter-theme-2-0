@@ -1,0 +1,17 @@
+<div class="padding-global padding-section-small"><div class="container-large"><div class="choose_main_slide"><div class="choose_main_top-wrapper"><div x-data=""><a x-on:click="history.back()" href="#" class="choose_main_back w-inline-block"><div class="icon-1x1-centered-small w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.52901 11.7998L5.72435 7.9951L9.52901 4.19043L10.4717 5.1331L7.60968 7.9951L10.4717 10.8571L9.52901 11.7998Z" fill="currentColor"></path></svg></div><div class="text-weight-medium text-size-small">
+{{ section.settings.text_zuruck }}
+</div>
+</a></div><h2 class="heading-style-h3">
+{{ section.settings.text_headline }}
+</h2>
+</div><div li-for:inside="product in collection.products" class="choose_main_component">
+        {% for product in collection.products %}                            
+                            <a li-object:href="product.url" id="w-node-c688898d-9ac7-41fd-7959-4ce33d39909b-9b07688f" href="{{ product.url }}" class="choose_main_item is-secondary w-inline-block"><div class="choose_main_content"><div><h3 li-object="product.metafields.custom.marke.value.title" class="choose_main_name">{{ product.metafields.custom.marke.value.title }}</h3></div><p>
+{{ section.settings.text_choose_text }}
+</p>
+</div><div class="choose_main_img-wrapper-secondary"><img li-object:src="product.metafields.custom.marke.value.featured_image | image_url" li-object:alt="product.metafields.custom.marken_logo.value.alt" alt="{{ product.metafields.custom.marken_logo.value.alt }}" src="{{ product.metafields.custom.marke.value.featured_image | image_url }}" loading="lazy" class="choose_main_img is-secondary">
+<div id="w-node-c688898d-9ac7-41fd-7959-4ce33d3990a4-9b07688f" class="choose_main_button-wrapper"><div class="button is-secondary-white">{{ section.settings.button_text }}</div></div></div></a>
+                            
+                    {% endfor %}    </div>
+</div></div></div><div class="li-custom w-embed"></div>
+ {% schema %} {"tag":"section","name":"Funnel - Einsatzgebi","class":"section_choose_main","settings":[{"id":"text_zuruck","type":"text","label":"Zur\u00fcck","default":"Zur\u00fcck"},{"id":"text_headline","type":"text","label":"Headline","default":"Welche Marke ben\u00f6tigen sie?"},{"id":"text_choose_text","type":"text","label":"Choose Text","default":"W\u00e4hle im n\u00e4chsten Schritt dein Service aus."},{"type":"collection_list","id":"collection_list","label":"Marken"},{"type":"text","id":"button_text","label":"Button Text"}],"presets":[{"name":"Funnel - Einsatzgebi","category":"Liquify","blocks":[]}]} {% endschema %}

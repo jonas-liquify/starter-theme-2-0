@@ -1,0 +1,17 @@
+<div class="padding-global"><div class="container-large"><div class="w-embed"><style>.home_select_right {
+    clip-path: polygon(12.5% 0, 100% 0, 82.5% 100%, 0% 100%);
+  }
+.home_select_item {
+    clip-path: polygon(0 0, 100% 0, 82.5% 100%, 0% 100%);
+  }
+</style></div><div class="home_select_component">{% for block in section.blocks %}
+    {% if block.type == "select-block" %}
+                    <div li-block="Select Block" id="w-node-_175e2013-6ba6-1164-e0f8-a20b24a56ca0-e47e4978">
+                                    
+                                    <a id="w-node-fb407073-9f55-56ec-06c6-91dae47e497d-e47e4978" href="{{ block.settings.url_link }}" class="home_select_item-wrapper w-inline-block"> <img loading="lazy" alt="{{ block.settings.image_bild.alt }}" src="{{ block.settings.image_bild | img_url: 'master' }}" class="home_select_img"><div id="w-node-fb407073-9f55-56ec-06c6-91dae47e497f-e47e4978" class="home_select_item"><div id="w-node-fb407073-9f55-56ec-06c6-91dae47e4980-e47e4978" class="home_select_left"><div class="home_select_content"><h2 class="heading-style-thick">{{ block.settings.text_headline }}</h2><p>{{ block.settings.text_text }}</p></div></div><div class="home_select_right"></div></div> </a>
+
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div></div><div class="home_select_overlay"></div> {% schema %} {"tag":"section","name":"Select Type","class":"section_home_select","blocks":[{"name":"Select Block","type":"select-block","settings":[{"id":"url_link","type":"url","label":"Link"},{"id":"image_bild","type":"image_picker","label":"Bild"},{"id":"text_headline","type":"text","label":"Headline","default":"MTB"},{"id":"text_text","type":"text","label":"Text","default":"Lorem ipsum dolor sit amet."}]}],"presets":[{"name":"Select Type","category":"Liquify","blocks":[{"type":"select-block"}]}]} {% endschema %}

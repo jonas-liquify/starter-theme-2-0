@@ -1,0 +1,64 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "select_type": {
+            "type": "select_type"
+        },
+        "about_1": {
+            "type": "about_1"
+        },
+        "service_slide": {
+            "type": "service_slide"
+        },
+        "bilder_slider": {
+            "type": "bilder_slider"
+        },
+        "prozess": {
+            "type": "prozess"
+        },
+        "marken": {
+            "type": "marken"
+        },
+        "products": {
+            "type": "products"
+        },
+        "showcase": {
+            "type": "showcase"
+        },
+        "location": {
+            "type": "location"
+        },
+        "blog_teaser": {
+            "type": "blog_teaser"
+        },
+        "tabelle": {
+            "type": "tabelle"
+        },
+        "infos": {
+            "type": "infos"
+        },
+        "popup": {
+            "type": "popup"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero",
+        "select_type",
+        "about_1",
+        "service_slide",
+        "bilder_slider",
+        "prozess",
+        "marken",
+        "products",
+        "showcase",
+        "location",
+        "blog_teaser",
+        "tabelle",
+        "infos",
+        "popup"
+    ]
+}

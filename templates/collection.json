@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "hero_2": {
+            "type": "hero_2"
+        },
+        "collection_products": {
+            "type": "collection_products"
+        }
+    },
+    "layout": "collection",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero_2",
+        "collection_products"
+    ]
+}

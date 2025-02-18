@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "partner_map": {
+            "type": "partner_map"
+        },
+        "contact_form": {
+            "type": "contact_form"
+        }
+    },
+    "layout": "page.partner-finder",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "partner_map",
+        "contact_form"
+    ]
+}

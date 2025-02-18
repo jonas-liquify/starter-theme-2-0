@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "contact_form": {
+            "type": "contact_form"
+        },
+        "map_single": {
+            "type": "map_single"
+        }
+    },
+    "layout": "page.contact",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "contact_form",
+        "map_single"
+    ]
+}

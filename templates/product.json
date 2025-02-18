@@ -1,0 +1,24 @@
+{
+    "sections": {
+        "product_hero": {
+            "type": "product_hero"
+        },
+        "content": {
+            "type": "content"
+        },
+        "faq": {
+            "type": "faq"
+        },
+        "product_recommended": {
+            "type": "product_recommended"
+        }
+    },
+    "layout": "product",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "product_hero",
+        "content",
+        "faq",
+        "product_recommended"
+    ]
+}

@@ -1,0 +1,17 @@
+<div class="padding-global padding-section-small"><div class="container-large"><div class="choose_main_slide"><div class="choose_main_top-wrapper"><div x-data=""><a x-on:click="history.back()" href="#" class="choose_main_back w-inline-block"><div class="icon-1x1-centered-small w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.52901 11.7998L5.72435 7.9951L9.52901 4.19043L10.4717 5.1331L7.60968 7.9951L10.4717 10.8571L9.52901 11.7998Z" fill="currentColor"></path></svg></div><div class="text-weight-medium text-size-small">
+{{ section.settings.text_zuruck }}
+</div>
+</a></div><h2 class="heading-style-h3">
+{{ section.settings.text_headline }}
+</h2>
+</div><div li-for:inside="product in collection.products" class="choose_a choose_main_logos">
+        {% for product in collection.products %}                            
+                            <a li-object:href="product.url" id="w-node-_4b68e740-cb5b-30f5-6bcc-b6a3583ae8ba-9b07688f" href="{{ product.url }}" class="choose_main_logo w-inline-block"><img src="{{ product.metafields.custom.marke.value.featured_image | image_url }}" loading="lazy" li-object:src="product.metafields.custom.marke.value.featured_image | image_url" alt="" class="choose_main_logo-img">
+<div class="choose_main_logo-overlay"><div class="choose_main_logo-top"><h3 li-object="product.metafields.custom.marke.value.title" class="heading-style-h4">{{ product.metafields.custom.marke.value.title }}</h3><p>
+{{ section.settings.text_logo_text }}
+</p>
+</div><p class="button is-secondary-white max-width-full">{{ section.settings.button_text }}</p></div></a>
+                            
+                    {% endfor %}    </div>
+</div></div></div><div class="li-custom w-embed"></div>
+ {% schema %} {"tag":"section","name":"Funnel - Produkte","class":"section_choose_main","settings":[{"id":"text_zuruck","type":"text","label":"Zur\u00fcck","default":"Zur\u00fcck"},{"id":"text_headline","type":"text","label":"Headline","default":"Welche Marke ben\u00f6tigen sie?"},{"id":"text_logo_text","type":"text","label":"Logo Text","default":"W\u00e4hle im n\u00e4chsten Schritt dein Bauteil aus."},{"type":"collection_list","id":"collection_list","label":"Marken"},{"type":"text","id":"button_text","label":"Button Text"}],"presets":[{"name":"Funnel - Produkte","category":"Liquify","blocks":[]}]} {% endschema %}

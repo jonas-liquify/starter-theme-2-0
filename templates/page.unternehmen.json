@@ -1,0 +1,32 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "about_2": {
+            "type": "about_2"
+        },
+        "content_2": {
+            "type": "content_2"
+        },
+        "team": {
+            "type": "team"
+        },
+        "showcase": {
+            "type": "showcase"
+        },
+        "testimonial": {
+            "type": "testimonial"
+        }
+    },
+    "layout": "page.unternehmen",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero",
+        "about_2",
+        "content_2",
+        "team",
+        "showcase",
+        "testimonial"
+    ]
+}

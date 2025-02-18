@@ -1,0 +1,175 @@
+<div>{% assign has_service_product = false %}
+{% for line_item in cart.items %}  {% if line_item.product.tags contains section.settings.text_tag %}    {% assign has_service_product = true %}{% endif %}{% endfor %}
+</div>{% if has_service_product and has_tuning_product == false %}    <div li-if="has_service_product and has_tuning_product == false">
+    <div class="padding-global padding-section-small"><div class="container-large"><div id="w-node-_7371c754-b39b-e80a-6f94-d88ef8a7baa5-2048041f" class="w-embed"><style>.form-input:focus + .form-label,
+  .form-input:not(:placeholder-shown) + .form-label {
+    top: 0px;
+    font-size: 1rem;
+    transform: translateY(-20%);
+    opacity: 0.5;
+  }
+</style><style>.form-text-area:focus + .form-label-area,
+  .form-text-area:not(:placeholder-shown) + .form-label-area {
+    top: 0px;
+    font-size: 1rem;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+</style></div><div class="formular_form w-form">{% form 'cart', cart %}
+<div class="formular_component"><div id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d52c-aac2d52c" class="formular_left"><div li-content-for-blocks="" class="formular_grid">
+{% for block in section.blocks %}
+    {% case block.type %}
+        {% when '@app' %}
+            {% render block %}
+    {% when 'headline' %}
+            <div li-block="Headline" id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d52e-aac2d52c">
+                    <h2 id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d52f-aac2d52c" class="heading-style-h4">
+{{ block.settings.text_headline }}
+</h2>
+
+                </div>
+    {% when 'input-text' %}
+            <div li-block="Input Text" id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d531-aac2d52c">
+                    <div id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d532-aac2d52c" class="form-group"><input class="form-input w-input" maxlength="256" name="{{ block.settings.name }}" data-name="Fahrerergewicht 2" placeholder=" " type="text" id="Fahrerergewicht-2" {% if block.settings.required == true %}required{% endif %}>
+<label for="name" class="form-label">
+{{ block.settings.text_input_lable }}
+</label>
+</div>
+                    
+                    <div class="padding-bottom padding-xxsmall"></div>
+                    
+                    <div class="text-size-small">
+{{ block.settings.text_beschreibung }}
+</div>
+
+                    
+                    <div class="li-custom w-embed"></div>
+
+                    
+                </div>
+    {% when 'input-radio' %}
+            <div li-block="Input Radio" id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d539-aac2d52c">
+                    
+                    <div id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d53a-aac2d52c" class="form-input-simu"><div class="form-label-simu">
+{{ block.settings.text_titel }}
+</div>
+<div class="formular_radio-wrapper"><label class="fs-radio_field-4 w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom fs-radio_button-4 w-radio-input"></div><input li-object:value="block.settings.text_lable_1" name="{{ block.settings.name }}" data-name="Rennen fahren" li-object:name="block.settings.name" type="radio" id="Ja" style="opacity:0;position:absolute;z-index:-1" value="{{ block.settings.text_lable_1 }}">
+<span fs-cmsfilter-field="category" fs-cmsfilter-active="is-active" class="fs-radio_label-4 w-form-label" for="Ja">
+{{ block.settings.text_lable_1 }}
+</span>
+</label><label class="fs-radio_field-4 is-second w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom fs-radio_button-4 w-radio-input"></div><input li-object:value="block.settings.text_lable_2" name="{{ block.settings.name }}" data-name="Rennen fahren" li-object:name="block.settings.name" type="radio" id="Nein" style="opacity:0;position:absolute;z-index:-1" value="{{ block.settings.text_lable_2 }}">
+<span fs-cmsfilter-field="category" fs-cmsfilter-active="is-active" class="fs-radio_label-4 w-form-label" for="Nein">
+{{ block.settings.text_lable_2 }}
+</span>
+</label></div><div class="li-custom w-embed"></div>
+</div>
+                    
+                    <div class="padding-bottom padding-xxsmall"></div>
+                    
+                    <div class="text-size-small">
+{{ block.settings.text_beschreibung }}
+</div>
+
+                    
+                </div>
+    {% when 'input-checkbox' %}
+            <label li-block="Input Checkbox " id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d549-aac2d52c" class="w-checkbox checkbox-field">
+                    
+                    <div class="w-checkbox-input w-checkbox-input--inputType-custom formular_checkbox"></div>
+                    <input type="checkbox" name="{{ block.settings.name }}" id="Einsatzgebiet-Alltag-2" data-name="Einsatzgebiet Alltag 2" li-object:name="block.settings.name" style="opacity:0;position:absolute;z-index:-1">
+
+                    <span class="checkbox-label w-form-label" for="Einsatzgebiet-Alltag-2">
+{{ block.settings.text_checkbox_lable }}
+</span>
+
+                    
+                    <div id="w-node-af15b157-d8c1-f7a2-9fcc-ec3eeadde996-aac2d52c" class="li-custom w-embed"></div>
+
+                    
+                </label>
+    {% when 'input-medium-text' %}
+            <div li-block="Input Medium Text" id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d54d-aac2d52c" class="form-group">
+                    <input class="form-input w-input" maxlength="256" name="{{ block.settings.name }}" data-name="Fahrerergewicht 2" placeholder=" " type="text" id="Fahrerergewicht-2" {% if block.settings.required == true %}required{% endif %}>
+
+                    <label for="name" class="form-label">
+{{ block.settings.text_input_lable }}
+</label>
+
+                    
+                    <div class="li-custom w-embed"></div>
+
+                    
+                </div>
+    {% when 'input-big-text' %}
+            <div li-block="Input Big Text" id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d551-aac2d52c" class="form-group is-area">
+                    <textarea class="form-text-area w-input" maxlength="5000" name="{{ block.settings.name }}" data-name="Weitere Informationen 2" placeholder="" id="Weitere-Informationen-2" {% if block.settings.required == true %}required{% endif %}></textarea>
+                    <label for="field" class="form-label-area">
+{{ block.settings.text_input_lable }}
+</label>
+
+                    
+                    <div class="li-custom w-embed"></div>
+
+                    
+                </div>
+    {% when 'spacer' %}
+            <div li-block="Spacer" id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d555-aac2d52c" class="spacer-small">
+                    
+                    <div class="hide">
+{{ block.settings.text_text }}
+</div>
+
+                    
+                </div>
+    {% when 'trennlinie' %}
+            <div li-block="Trennlinie" id="w-node-_976c3035-d0f5-32d1-c4f5-5bb5aac2d558-aac2d52c" class="formular_trenner">
+                    
+                    <div class="hide">
+{{ block.settings.text_text }}
+</div>
+
+                    
+                </div>
+        {% endcase %}
+{% endfor %}
+
+</div>
+
+</div><div id="w-node-_7371c754-b39b-e80a-6f94-d88ef8a7bafb-2048041f" class="formular_right"><div class="formular_row"><h2 class="heading-style-h4">
+{{ section.settings.text_zusammenfassung }}
+</h2>
+<ul role="list" class="mini-cart_line-item_list w-list-unstyled">{% for item in cart.items %}    <li li-for="item in cart.items" class="mini-cart_line-item_item">
+                                    <img li-object:src="item.image |  img_url: 'small'" loading="lazy" alt="" src="{{ item.image |  img_url: 'small' }}" class="mini-cart_line-item_img">
+
+                            
+                            <div class="mini-cart_line-item_product-info"><div class="mini-cart_line-item_top"><div class="mini-cart_product-info"><div li-object="item.product.title" class="text-size-medium text-weight-semibold text-style-allcaps">{{ item.product.title }}</div>{% if item.product.has_only_default_variant != true %}    <div li-if="item.product.has_only_default_variant != true" class="mini-cart_line-item_values">
+    <div li-object="item.variant.title">{{ item.variant.title }}</div>    </div>
+{% endif %}</div><div class="mini-cart_line-item_price"><div li-object="item.final_line_price | money" class="text-size-medium text-weight-semibold text-style-allcaps">{{ item.final_line_price | money }}</div><template x-if="product.price < product.original_price">
+            <div li-js-if="product.price < product.original_price">
+        <div li-object="item.original_line_price | money" class="text-size-small text-style-strikethrough text-style-muted">{{ item.original_line_price | money }}</div>        </div>
+    </template>
+</div></div><div class="mini-cart_line-item_bottom"><div><div class="mini-cart_line-item_quantity"><input li-object:value="item.quantity" name="updates[]" class="mini-cart_line-item_quantity-adjust" value="{{ item.quantity }}">
+</div></div><a li-object:href="item.url_to_remove" href="{{ item.url_to_remove }}" class="w-inline-block"><div class="mini-cart_line-item_remove-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_7404_5310" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="26" height="26"><rect width="26" height="26" fill="currentColor"></rect></mask><g mask="url(#mask0_7404_5310)"><path d="M7.57813 22.75C6.98229 22.75 6.47222 22.5378 6.04792 22.1135C5.62361 21.6892 5.41146 21.1792 5.41146 20.5833V6.5H4.32812V4.33333H9.74479V3.25H16.2448V4.33333H21.6615V6.5H20.5781V20.5833C20.5781 21.1792 20.366 21.6892 19.9417 22.1135C19.5174 22.5378 19.0073 22.75 18.4115 22.75H7.57813ZM18.4115 6.5H7.57813V20.5833H18.4115V6.5ZM9.74479 18.4167H11.9115V8.66667H9.74479V18.4167ZM14.0781 18.4167H16.2448V8.66667H14.0781V18.4167Z" fill="currentColor"></path></g></svg></div></a></div></div>
+                            
+                        </li>
+{% endfor %}</ul></div><div class="formular_total"><div class="mini-cart_footer-total is-top"><div class="text-size-regular">
+{{ section.settings.text_gesamtkosten }}
+</div>
+<div class="mini-cart_footer-price"><div li-object="cart.total_price | money" class="text-size-regular text-weight-bold">{{ cart.total_price | money }}</div><template x-if="total.price < original_total_price">
+            <div li-js-if="total.price < original_total_price" class="mini-cart_conditional">
+        <div li-object="cart.original_total_price | money" class="text-size-regular text-weight-bold text-style-strikethrough text-style-muted">{{ cart.original_total_price | money }}</div>        </div>
+    </template>
+</div></div><div class="mini-cart_footer-total"><div class="text-size-regular">
+{{ section.settings.text_versandkosten }}
+</div>
+<div class="mini-cart_footer-price"><div class="text-size-regular text-weight-bold">
+{{ section.settings.text_versandkosten_preis }}
+</div>
+</div></div></div><div class="formular_button-wrapper"><input type="submit" data-wait="Please wait..." class="button is-outline w-button" value="Update cart">
+<input type="submit" data-wait="Bitte warten..." class="button w-button" value="Checkout" name="checkout">
+</div></div></div>{% endform %}
+<div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div><div class="formular_white-bg"></div>    </div>
+{% endif %}<div class="hide">
+{{ section.settings.text_tag }}
+</div>
+ {% schema %} {"tag":"section","name":"Form","class":"section_formular","blocks":[{"name":"Headline","type":"headline","settings":[{"id":"text_headline","type":"text","label":"Headline","default":"Fahrer"}]},{"name":"Input Text","type":"input-text","settings":[{"id":"text_input_lable","type":"text","label":"Input Lable","default":"Fahrerergewicht*"},{"id":"text_beschreibung","type":"text","label":"Beschreibung","default":"*Fahrergewicht inkl. Ausr\u00fcstung (kg)"},{"type":"text","id":"name","label":"Name","default":"attributes[Fahrergewicht]"},{"type":"checkbox","id":"required","label":"Required","default":false}]},{"name":"Input Radio","type":"input-radio","settings":[{"id":"text_titel","type":"text","label":"Titel","default":"Ich fahre Rennen"},{"id":"text_lable_1","type":"text","label":"Lable 1","default":"Ja"},{"id":"text_lable_2","type":"text","label":"Lable 2","default":"Nein"},{"type":"text","id":"name","label":"Name","default":"attributes[Fahrergewicht]"},{"id":"text_beschreibung","type":"text","label":"Beschreibung","default":"*Fahrergewicht inkl. Ausr\u00fcstung (kg)"}]},{"name":"Input Checkbox ","type":"input-checkbox","settings":[{"id":"text_checkbox_lable","type":"text","label":"Checkbox Lable","default":"Alltag"},{"type":"text","id":"name","label":"Name","default":"attributes[Fahrergewicht]"}]},{"name":"Input Medium Text","type":"input-medium-text","settings":[{"id":"text_input_lable","type":"text","label":"Input Lable","default":"Sonstige Einsatzgebiete*"},{"type":"text","id":"name","label":"Name","default":"attributes[Fahrergewicht]"},{"type":"checkbox","id":"required","label":"Required","default":false}]},{"name":"Input Big Text","type":"input-big-text","settings":[{"id":"text_input_lable","type":"text","label":"Input Lable","default":"Defektbeschreibung\/Reparaturbedarf\/Optimierungsw\u00fcnsche"},{"type":"text","id":"name","label":"Name","default":"attributes[Fahrergewicht]"},{"type":"checkbox","id":"required","label":"Required","default":false}]},{"name":"Spacer","type":"spacer","settings":[{"id":"text_text","type":"text","label":"Text","default":"This is some text inside of a div block."}]},{"name":"Trennlinie","type":"trennlinie","settings":[{"id":"text_text","type":"text","label":"Text","default":"This is some text inside of a div block."}]}],"settings":[{"id":"text_zusammenfassung","type":"text","label":"Zusammenfassung","default":"Zusammenfassung"},{"id":"text_gesamtkosten","type":"text","label":"Gesamtkosten","default":"Gesamtkosten"},{"id":"text_versandkosten","type":"text","label":"Versandkosten","default":"Versandkosten"},{"id":"text_versandkosten_preis","type":"text","label":"Versandkosten Preis","default":"Wird im Check-out berechnet"},{"id":"text_tag","type":"text","label":"Tag","default":"MOTO Service"}],"presets":[{"name":"Form","category":"Liquify","blocks":[{"type":"headline"},{"type":"input-text"},{"type":"input-radio"},{"type":"input-checkbox"},{"type":"input-medium-text"},{"type":"input-big-text"},{"type":"spacer"},{"type":"trennlinie"}]}]} {% endschema %}

@@ -1,0 +1,28 @@
+<div class="padding-global padding-section-medium"><div class="container-large">{% if section.settings.content_allign == 'left' %}    <div li-if="section.settings.content_allign == 'left'" class="split_component">
+    <div id="w-node-_385662a4-3938-6bd7-e7ff-a4cfbb01f7c8-bb01f7c4" class="split_content"><div class="heading-block"><div class="subheading text-color-red">
+{{ section.settings.text_subheading }}
+</div>
+<h2 li-object="section.settings.text_heading" class="heading-style-h2">{{ section.settings.text_heading }}</h2><div><p li-object="section.settings.textarea_text">{{ section.settings.textarea_text }}</p></div><div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><div class="li-custom w-embed"></div>
+</div></div><div id="w-node-_385662a4-3938-6bd7-e7ff-a4cfbb01f7ca-bb01f7c4" class="split-1_image-wrapper"><img src="{{ section.settings.image_bild | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_bild.alt }}" class="split-1_image">
+</div>    </div>
+{% endif %}{% if section.settings.content_allign == 'right' %}    <div li-if="section.settings.content_allign == 'right'" id="w-node-_9c778baa-f646-aa05-9714-81e68b41c421-bb01f7c4" class="split_component">
+    <div id="w-node-_9c778baa-f646-aa05-9714-81e68b41c422-bb01f7c4" class="split-2_image-wrapper"><img src="{{ section.settings.image_bild | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_bild.alt }}" class="split-2_image">
+</div><div id="w-node-_9c778baa-f646-aa05-9714-81e68b41c424-bb01f7c4" class="split_content"><div class="heading-block"><div class="subheading text-color-red">
+{{ section.settings.text_subheading }}
+</div>
+<h2 li-object="section.settings.text_heading" class="heading-style-h2">{{ section.settings.text_heading }}</h2><div><p li-object="section.settings.textarea_text">{{ section.settings.textarea_text }}</p></div><div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><div class="li-custom w-embed"></div>
+</div></div>    </div>
+{% endif %}</div></div><div class="li-custom w-embed"></div>
+ {% schema %} {"tag":"section","name":"Content","class":"section_split-1","settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"id":"url_button_link_2","type":"url","label":"Button-Link 2"},{"id":"text_button_text_2","type":"text","label":"Button-Text 2","default":"Service anfragen"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"Service anfragen"},{"type":"html","id":"text_heading","label":"Headline","default":"Optimale Leistung f\u00fcr deine Federgabela"},{"type":"richtext","id":"textarea_text","label":"Text","default":"<p>Wir sind deine Experten f\u00fcr Federelemente. Professioneller Service f\u00fcr alle Federgabel- &amp; D\u00e4mpfermarken. Kompetente Beratung, einfache Abwicklung, schnelle Bearbeitung. In unserer Service &amp; Tuning Anfrage kannst du Leistungen individuell kombinieren. Ohne Termin, sofort los!<\/p>"},{"id":"image_bild","type":"image_picker","label":"Bild"},{"type":"radio","id":"content_allign","label":"Links\/Rechts","options":[{"value":"left","label":"Links"},{"value":"right","label":"Rechts"}],"default":"left"}],"presets":[{"name":"Content","category":"Liquify","blocks":[]}]} {% endschema %}

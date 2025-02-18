@@ -1,0 +1,13 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><h2 class="heading-style-h2">
+{{ section.settings.text_headline }}
+</h2>
+<div class="spacer-medium"></div>{% assign currentArticle = article.title %}
+<div class="w-dyn-list"><div li-for:inside="article in blog.articles limit: 3" role="list" class="blog_list w-dyn-items">
+        {% for article in blog.articles limit: 3 %}                            
+                            {% if article.title != currentArticle %}    <div li-if="article.title != currentArticle" role="listitem" class="w-dyn-item">
+    <div id="w-node-f4d33577-9485-bbdf-7c42-8b068e2e1823-8e2e1823" class="blog-teaser_item"><a li-object:href="article.url" href="{{ article.url }}" class="blog-teaser_link w-inline-block"><div class="blog-teaser_img-wrapper"><img src="{{ article.image | img_url: 'master' }}" loading="lazy" li-object:src="article.image | img_url: 'master'" li-object:alt="article.image.alt" alt="{{ article.image.alt }}" class="blog-teaser_img">
+</div><div class="blog-teaser_bottom"><h3 li-object="article.title" class="heading-style-h4">{{ article.title }}</h3></div><p li-object="article.excerpt_or_content | truncate: 60" class="blog-teaser_p">{{ article.excerpt_or_content | truncate: 60 }}</p></a></div>    </div>
+{% endif %}
+                            
+                    {% endfor %}    </div>
+<div class="w-dyn-empty"><div>No items found.</div></div></div></div></div> {% schema %} {"tag":"section","name":"Related Articles","class":"section_weitere-links","settings":[{"id":"text_headline","type":"text","label":"Headline","default":"Other Articles"}],"presets":[{"name":"Related Articles","category":"Liquify","blocks":[]}]} {% endschema %}

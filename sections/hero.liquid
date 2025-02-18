@@ -1,0 +1,6 @@
+<div class="padding-global"><div class="container-large"><div><div class="subheading text-color-white">
+{{ section.settings.text_subheading }}
+</div>
+<h1 li-object="section.settings.text_heading" class="hero-heading text-color-white">{{ section.settings.text_heading }}</h1></div></div></div><img loading="lazy" alt="{{ section.settings.image_bild.alt }}" src="{{ section.settings.image_bild | img_url: 'master' }}" class="home_hero_bg-img">
+<div class="li-custom w-embed"></div>
+ {% schema %} {"tag":"section","name":"Hero","class":"section_home_hero","settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"id":"image_bild","type":"image_picker","label":"Bild"},{"type":"html","id":"text_heading","label":"Headline","default":"Optimale Leistung f\u00fcr deine Federgabela"}],"presets":[{"name":"Hero","category":"Liquify","blocks":[]}]} {% endschema %}

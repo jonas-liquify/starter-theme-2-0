@@ -1,0 +1,30 @@
+<div><div id="popup" class="popup_component hide"><img src="{{ section.settings.image_bild | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_bild.alt }}" class="popup_image">
+<div class="text-size-medium text-weight-semibold">
+{{ section.settings.text_headline }}
+</div>
+<div class="spacer-xsmall"></div><div class="text-style-disclaimer">
+{{ section.settings.text_disclaimer }}
+</div>
+{% if section.settings.text_button_text != blank or section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text != blank or section.settings.text_button_text_2 != blank" id="w-node-e2992af1-de0a-98db-30d4-3079b41ade09-b41ade01" class="button-group padding-top padding-small">
+    {% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" id="w-node-e2992af1-de0a-98db-30d4-3079b41ade0a-b41ade01">
+    <a aria-label="{{ section.settings.text_button_text }}" id="w-node-e2992af1-de0a-98db-30d4-3079b41ade0b-b41ade01" href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank" id="w-node-e2992af1-de0a-98db-30d4-3079b41ade0d-b41ade01">
+    <a aria-label="{{ section.settings.text_button_text_2 }}" id="w-node-e2992af1-de0a-98db-30d4-3079b41ade0e-b41ade01" href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}    </div>
+{% endif %}<div id="closepopup" class="popup_close"><img loading="lazy" src="{{ 'close-icon.svg' | asset_url }}" alt="" class="popup_img">
+</div></div><div class="hide w-embed w-script"><script>document.addEventListener("DOMContentLoaded", () => {
+    const popup = document.getElementById("popup");
+    const closePopupButton = document.getElementById("closepopup");
+    // Check if the popup has already been shown
+    if (!localStorage.getItem("popupShown")) {
+      popup.classList.remove("hide");
+    }
+    // Close popup and save to localStorage
+    closePopupButton.addEventListener("click", () => {
+      popup.classList.add("hide");
+      localStorage.setItem("popupShown", "true");
+    });
+  });
+</script></div></div> {% schema %} {"tag":"div","name":"Popup","class":"section_popup","settings":[{"id":"image_bild","type":"image_picker","label":"Bild"},{"id":"text_headline","type":"text","label":"Headline","default":"FAHRRAD FAHRWERK WIRD ZU<br\/>SWIFT SUSPENSION"},{"id":"text_disclaimer","type":"text","label":"Disclaimer","default":"Der Rabatt wird automatisch bei Ihrer Bestellung abgezogen."},{"id":"text_button_text","type":"text","label":"Button Text","default":"Mehr erfahren"},{"id":"url_button_link","type":"url","label":"Button Link"},{"id":"text_button_text_2","type":"text","label":"Button Text 2","default":"Mehr erfahren"},{"id":"url_button_link_2","type":"url","label":"Button Link 2"}],"presets":[{"name":"Popup","category":"Liquify","blocks":[]}]} {% endschema %}
