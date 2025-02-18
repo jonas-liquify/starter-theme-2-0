@@ -1,0 +1,103 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="blog_article_back-wrapper"><a href="{{ section.settings.url_zuruck }}" class="blog_article_back w-inline-block"> <div class="blog_article_back-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.47134 7.9039C6.50037 7.93293 6.52341 7.9674 6.53912 8.00534C6.55483 8.04327 6.56292 8.08393 6.56292 8.12499C6.56292 8.16605 6.55483 8.20671 6.53912 8.24465C6.52341 8.28258 6.50037 8.31705 6.47134 8.34608C6.44231 8.37512 6.40784 8.39815 6.3699 8.41386C6.33197 8.42958 6.29131 8.43766 6.25025 8.43766C6.20918 8.43766 6.16853 8.42958 6.13059 8.41386C6.09266 8.39815 6.05819 8.37512 6.02915 8.34608L2.90415 5.22108C2.8751 5.19206 2.85205 5.1576 2.83632 5.11966C2.82059 5.08172 2.8125 5.04106 2.8125 4.99999C2.8125 4.95892 2.82059 4.91826 2.83632 4.88032C2.85205 4.84238 2.8751 4.80792 2.90415 4.7789L6.02915 1.6539C6.08779 1.59526 6.16732 1.56232 6.25025 1.56232C6.33317 1.56232 6.4127 1.59526 6.47134 1.6539C6.52998 1.71253 6.56292 1.79206 6.56292 1.87499C6.56292 1.95792 6.52998 2.03745 6.47134 2.09608L3.56704 4.99999L6.47134 7.9039Z" fill="currentColor"></path></svg></div><div>Alle Beitrage</div> </a>
+</div><div class="blog_article_component"><div class="blog_article_content"><div class="blog_article_content-top"><h1 li-object="article.title" class="heading-style-h2">{{ article.title }}</h1></div><div class="blog_article_author"><img src="{{ 'image_1.svg' | asset_url }}" loading="lazy" alt="image placeholder
+" class="blog_article_author-img">
+<div><div>Lane Steiner</div><div class="text-size-small text-opacity-70">Engineering Manager, Layers</div></div></div><div id="content" li-object="article.content" class="blog_article_rich-text w-richtext">{{ article.content }}</div></div><div class="blog_article_table-of-content"><div class="blog_toc-wrapper"><div class="heading-style-h4">Inhaltsverzeichnis</div><div id="toc-wrapper" class="blog_toc-list"><div id="Article" class="custom-code-toc_script w-embed w-script"><div><style>.toc_item {
+            opacity: 1 !important;
+        }
+    </style><script>let contentID = "content"; // ID of content
+        let tocID = "toc-wrapper"; // ID to TOC element, if empty use parent div
+        let headingLevels = ["h2"]; // Define the different levels
+        let offset_size = "9rem"; // Define the offset of the anchor on scroll
+        let toc_container;
+        let anchors = [];
+        if (tocID == "") {
+            var scriptTag = document.getElementsByTagName('script');
+            scriptTag = scriptTag[scriptTag.length - 1];
+            toc_container = scriptTag.parentNode;
+        }
+        window.addEventListener('load', () => {
+            let content = document.getElementById(contentID);
+            if (tocID != "") {
+                toc_container = document.getElementById(tocID);
+            }
+            var toc = document.createElement('ul');
+            toc.className = "toc_uolist";
+            toc_container.appendChild(toc);
+            let sub_eles = content.getElementsByTagName('*');
+            var nesting = [toc];
+            var hadH2 = false;
+            for (const ele of sub_eles) {
+                if (ele.tagName.toLowerCase() == "h2") {
+                    hadH2 = true;
+                }
+                var i;
+                for (i = 0; i < headingLevels.length; i++) {
+                    var level = headingLevels[i];
+                    if ((level[0] == '.' && ele.className.toLowerCase() == level.slice(1).toLowerCase()) ||
+                        ele.tagName.toLowerCase() == level.toLowerCase()) {
+                        break;
+                    }
+                }
+                if (i < headingLevels.length) {
+                    while (nesting.length - 1 > i)
+                        nesting.pop();
+                    while (nesting.length - 1 < i) {
+                        let nest = document.createElement('ul');
+                        nest.className = "toc_uolist";
+                        nesting[nesting.length - 1].appendChild(nest);
+                        nesting.push(nest);
+                    }
+                    let toc_ele = document.createElement('a');
+                    let anchor = document.createElement('a');
+                    anchors.push([anchor, toc_ele]);
+                    // Use the original textContent instead of innerText
+                    let originalText = ele.textContent.trim();
+                    // Generate ID for the anchor
+                    for (var j = 0; j < originalText.length; j++) {
+                        let germanReplacements = { "&Atilde;&frac14;": "ue", "&Atilde;&oelig;": "Ue", "&Atilde;&bdquo;": "Ae", "&Atilde;&curren;": "ae", '&Atilde;&ndash;': "Oe", "&Atilde;&para;": "oe", "&Atilde;&Yuml;": "ss" };
+                        if (/[a-zA-Z0-9]/.test(originalText[j])) {
+                            anchor.id += originalText[j];
+                        } else if (originalText[j] == " ") {
+                            anchor.id += "-";
+                        } else if (originalText[j] in germanReplacements) {
+                            anchor.id += germanReplacements[originalText[j]];
+                        }
+                    }
+                    anchor.style = "top:-" + offset_size + "; position: relative;";
+                    ele.appendChild(anchor);
+                    toc_ele.href = "#" + anchor.id;
+                    toc_ele.innerText = originalText; // Use the original text content here
+                    toc_ele.className = "toc_link";
+                    var item = document.createElement('li');
+                    item.appendChild(toc_ele);
+                    item.className = "toc_item";
+                    nesting[nesting.length - 1].appendChild(item);
+                }
+            }
+            if (!hadH2) {
+                toc.style.display = "none";
+                let toHide = document.getElementsByClassName("toc_inner-wrapper");
+                for (var i = 0; i < toHide.length; i++) {
+                    toHide[i].style.display = "none";
+                }
+            }
+        });
+        window.addEventListener('scroll', () => {
+            let cur_active;
+            let cur_value;
+            for (var i = 0; i < anchors.length; i++) {
+                anchors[i][1].classList.remove('toc_is-active');
+                var pos = anchors[i][0].getBoundingClientRect().top;
+                if (pos < window.innerHeight / 2) {
+                    if (!cur_value || cur_value < pos) {
+                        cur_value = pos;
+                        cur_active = anchors[i][1];
+                    }
+                }
+            }
+            console.log(cur_active ? cur_active.href : "No active section");
+            if (cur_active) {
+                cur_active.classList.add('toc_is-active');
+            }
+        });
+    </script></div></div><ol role="list" class="toc_uolist hide"><li class="toc_item"><a href="#" class="toc_link toc_is-active">Text Link</a></li><li class="toc_item"><a href="#" class="toc_link">Text Link</a></li></ol></div></div><div class="blog_article_social-share"><div>Teile diesen Artikel</div><div class="blog_article_social-share-links"><a id="copy-button" href="#" class="blog_article_social-share-icon-wrapper w-inline-block"><div class="blog_article_social-share-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.8829 7.27174V7.58341C20.8836 8.56065 20.4853 9.49779 19.7761 10.1867L17.1311 12.7808C16.6377 13.2585 15.8426 13.2585 15.3491 12.7808L15.2553 12.68C15.0765 12.5018 15.0765 12.2165 15.2553 12.0383L18.4818 8.88505C18.8261 8.5361 19.0149 8.06809 19.007 7.58341V7.27174C19.0074 6.78313 18.8083 6.31456 18.4536 5.97009L17.844 5.37427C17.4915 5.02773 17.0121 4.83305 16.5121 4.83343H16.1932C15.6932 4.83305 15.2139 5.02773 14.8614 5.37427L11.6349 8.50006C11.4525 8.67475 11.1606 8.67475 10.9783 8.50006L10.8751 8.39923C10.3864 7.91694 10.3864 7.13988 10.8751 6.65758L13.5295 4.05427C14.2391 3.37129 15.1974 2.99205 16.1932 3.00013H16.5121C17.5074 2.99936 18.4622 3.38516 19.1665 4.07261L19.7855 4.67761C20.4889 5.36582 20.8836 6.299 20.8829 7.27174ZM9.29932 13.0283L14.261 8.17924C14.3491 8.09248 14.4689 8.04366 14.594 8.04366C14.719 8.04366 14.8389 8.09248 14.9269 8.17924L15.5835 8.8209C15.6722 8.90695 15.7222 9.0241 15.7222 9.14631C15.7222 9.26852 15.6722 9.38566 15.5835 9.47176L10.6218 14.3208C10.5338 14.4076 10.4139 14.4564 10.2888 14.4564C10.1638 14.4564 10.0439 14.4076 9.95588 14.3208L9.29932 13.6792C9.21054 13.5931 9.1606 13.4759 9.1606 13.3537C9.1606 13.2316 9.21054 13.1144 9.29932 13.0283ZM13.9046 14C13.7223 13.8253 13.4304 13.8253 13.248 14L10.0309 17.1258C9.67615 17.4746 9.19288 17.6694 8.68967 17.6666H8.37077C7.87081 17.667 7.39138 17.4723 7.03891 17.1258L6.42925 16.53C6.07468 16.1855 5.87548 15.7169 5.87587 15.2283V14.9167C5.87548 14.428 6.07468 13.9595 6.42925 13.615L9.63697 10.4617C9.81572 10.2835 9.81572 9.99829 9.63697 9.82L9.5338 9.71917C9.04032 9.24153 8.24522 9.24153 7.75174 9.71917L5.10676 12.3133C4.39761 13.0023 3.99921 13.9394 4 14.9167V15.2375C4.00171 16.2071 4.39627 17.1365 5.09739 17.8224L5.71642 18.4274C6.42061 19.1149 7.37545 19.5007 8.37077 19.4999H8.68967C9.67773 19.5056 10.6282 19.13 11.3346 18.4549L14.0078 15.8425C14.4965 15.3601 14.4965 14.5831 14.0078 14.1008L13.9046 14Z" fill="currentColor"></path></svg></div><div id="copy-status" class="copy-status"></div></a><a fs-socialshare-element="X" href="#" class="blog_article_social-share-icon-wrapper w-inline-block"><div class="blog_article_social-share-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7404_4365)"><path d="M17.3073 0.34668H20.6806L13.2739 8.78001L21.9273 20.22H15.1366L9.81992 13.268L3.73326 20.22H0.359922L8.20659 11.2L-0.0800781 0.34668H6.87926L11.6826 6.69735L17.3073 0.34668ZM16.1266 18.24H17.9966L5.89659 2.25335H3.88726L16.1266 18.24Z" fill="currentColor"></path></g><defs><clippath id="clip0_7404_4365"><rect width="22" height="19.8733" fill="currentColor" transform="translate(0 0.34668)"></rect></clippath></defs></svg></div></a><a fs-socialshare-element="Facebook" href="#" class="blog_article_social-share-icon-wrapper w-inline-block"><div class="blog_article_social-share-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7404_4367)"><path d="M22.5106 11C22.5106 4.92486 17.4715 0 11.2553 0C5.03917 0 0 4.92486 0 11C0 16.4903 4.11589 21.0411 9.49668 21.8664V14.1797H6.63888V11H9.49668V8.57656C9.49668 5.81969 11.1771 4.29687 13.748 4.29687C14.979 4.29687 16.2675 4.51172 16.2675 4.51172V7.21875H14.8482C13.4501 7.21875 13.014 8.06674 13.014 8.9375V11H16.1356L15.6365 14.1797H13.014V21.8664C18.3948 21.0411 22.5106 16.4903 22.5106 11Z" fill="currentColor"></path><path d="M15.6363 14.1799L16.1353 11.0002H13.0138V8.93774C13.0138 8.06784 13.4499 7.21899 14.848 7.21899H16.2672V4.51196C16.2672 4.51196 14.9793 4.29712 13.7478 4.29712C11.1769 4.29712 9.49647 5.81993 9.49647 8.57681V11.0002H6.63867V14.1799H9.49647V21.8666C10.6618 22.0448 11.8484 22.0448 13.0138 21.8666V14.1799H15.6363Z" fill="fff"></path></g><defs><clippath id="clip0_7404_4367"><rect width="22.5106" height="22" fill="fff"></rect></clippath></defs></svg></div></a><a fs-socialshare-element="LinkedIn" href="#" class="blog_article_social-share-icon-wrapper w-inline-block"><div class="blog_article_social-share-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7404_4371)"><path d="M18.9999 0.00012207H1.51794C1.1164 0.00012207 0.731295 0.156018 0.447358 0.433514C0.163421 0.71101 0.00390625 1.08738 0.00390625 1.47981V18.5652C0.00390625 18.9576 0.163421 19.334 0.447358 19.6115C0.731295 19.889 1.1164 20.0449 1.51794 20.0449H18.9999C19.4014 20.0449 19.7865 19.889 20.0705 19.6115C20.3544 19.334 20.5139 18.9576 20.5139 18.5652V1.47981C20.5139 1.08738 20.3544 0.71101 20.0705 0.433514C19.7865 0.156018 19.4014 0.00012207 18.9999 0.00012207ZM6.11703 17.0757H3.0334V7.50298H6.11703V17.0757ZM4.57308 6.17641C4.2233 6.17448 3.88193 6.07134 3.59207 5.87999C3.30222 5.68864 3.07685 5.41766 2.94442 5.10125C2.81199 4.78484 2.77844 4.43719 2.84799 4.10216C2.91754 3.76713 3.08707 3.45974 3.3352 3.21879C3.58334 2.97784 3.89894 2.81413 4.24218 2.74831C4.58543 2.68249 4.94093 2.71752 5.26383 2.84897C5.58672 2.98042 5.86254 3.20241 6.05646 3.48692C6.25039 3.77142 6.35374 4.1057 6.35346 4.44755C6.35676 4.67642 6.31288 4.9036 6.22443 5.11554C6.13598 5.32749 6.00478 5.51986 5.83863 5.68119C5.67249 5.84253 5.47482 5.96952 5.25739 6.0546C5.03997 6.13968 4.80724 6.1811 4.57308 6.17641ZM17.483 17.0841H14.4008V11.8544C14.4008 10.312 13.7299 9.83597 12.864 9.83597C11.9496 9.83597 11.0522 10.5097 11.0522 11.8933V17.0841H7.96862V7.50994H10.934V8.83651H10.9739C11.2716 8.2477 12.3142 7.24129 13.9051 7.24129C15.6257 7.24129 17.4844 8.23935 17.4844 11.1625L17.483 17.0841Z" fill="currentColor"></path></g><defs><clippath id="clip0_7404_4371"><rect width="20.51" height="20.0447" fill="currentColor"></rect></clippath></defs></svg></div></a><a id="email-share" href="#" class="blog_article_social-share-icon-wrapper w-inline-block"><div class="blog_article_social-share-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.3242 4.56299H3.32422C3.12531 4.56299 2.93454 4.64201 2.79389 4.78266C2.65324 4.92331 2.57422 5.11408 2.57422 5.31299V18.063C2.57422 18.4608 2.73225 18.8423 3.01356 19.1236C3.29486 19.405 3.67639 19.563 4.07422 19.563H20.5742C20.972 19.563 21.3536 19.405 21.6349 19.1236C21.9162 18.8423 22.0742 18.4608 22.0742 18.063V5.31299C22.0742 5.11408 21.9952 4.92331 21.8545 4.78266C21.7139 4.64201 21.5231 4.56299 21.3242 4.56299ZM9.57828 12.063L4.07422 17.1077V7.0183L9.57828 12.063ZM10.6883 13.0802L11.8133 14.1161C11.9516 14.2431 12.1326 14.3136 12.3205 14.3136C12.5083 14.3136 12.6893 14.2431 12.8277 14.1161L13.9527 13.0802L19.3902 18.063H5.25266L10.6883 13.0802ZM15.0702 12.063L20.5742 7.01736V17.1086L15.0702 12.063Z" fill="currentColor"></path></svg></div></a></div></div></div></div></div></div> {% schema %} {"tag":"section","name":"Article","class":"section_blog_article","settings":[{"id":"url_zuruck","type":"url","label":"Zur\u00fcck"}],"presets":[{"name":"Article","category":"Liquify","blocks":[]}]} {% endschema %}

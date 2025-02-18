@@ -1,0 +1,38 @@
+<div>{% assign has_service_product = false %}
+{% for line_item in cart.items %}  {% if line_item.product.tags contains section.settings.text_tag or line_item.product.tags contains section.settings.text_tag_2 %}    {% assign has_service_product = true %}{% endif %}{% endfor %}
+</div>{% if has_service_product == false %}    <div li-if="has_service_product == false" class="padding-global padding-section-small">
+    <div class="container-large"><div class="headline-wrapper"><h2 id="w-node-e70215e6-46ed-17af-2aa7-195241f33af3-2048041f" class="heading-style-h2">
+{{ section.settings.text_heading }}
+</h2>
+<a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="text-size-small text-style-link hide-mobile-landscape text-color-white">Continue shopping</a></div>{% if cart.item_count > 0 %}    <div li-if="cart.item_count > 0" class="cart_form-block w-form">
+    {% form 'cart', cart, class: 'cart_grid-wrapper' %}
+<div class="cart_table outline-solid-1"><div class="cart_grid is-header w-hidden-tiny"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33afb-2048041f" class="cart_table-header"><p class="text-size-regular">Produkte</p></div><div class="cart_table-header"><p class="text-size-regular">Anzahl</p></div><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b01-2048041f" class="cart_table-header"><p class="text-size-regular">Preis</p></div></div>{% for item in cart.items %}    <div li-for="item in cart.items" class="cart_grid">
+                                    <div id="w-node-_51dd9338-e259-f546-1410-ab7878c921b7-2048041f" class="display-inlineflex"><a href="{{ item.url }}" li-object:href="item.url" id="w-node-_51dd9338-e259-f546-1410-ab7878c921b8-2048041f" class="w-inline-block"><img src="{{ item.image |  img_url: 'small' }}" li-object:src="item.image |  img_url: 'small'" alt="" class="cart_image">
+</a><div class="cart_info-order"><a href="{{ item.url }}" li-object:href="item.url" li-object="item.title" class="text-size-regular">{{ item.title }}</a></div></div>
+                            <div id="w-node-_51dd9338-e259-f546-1410-ab7878c921c7-2048041f" class="cart_table-item anzahl"><div class="cart_quantity-wrapper"><div>Anzahl</div><input class="cart_quantity w-input" li-object:value="item.quantity" maxlength="256" name="updates[]" data-name="updates[]" placeholder="1" type="number" id="updates[]" required="" value="{{ item.quantity }}">
+</div><a href="{{ item.url_to_remove }}" li-object:href="item.url_to_remove" class="text-size-tiny text-style-link text-align-center w-inline-block"><div>Entfernen</div></a></div>
+                            <div id="w-node-_3d7cbf18-159c-e09d-034b-aa8947f77c7f-2048041f" class="cart_price-info"><div li-object="item.final_line_price | money" id="w-node-_51dd9338-e259-f546-1410-ab7878c921d0-2048041f" class="text-size-regular">{{ item.final_line_price | money }}</div>{% if item.original_line_price > item.final_line_price %}    <div li-if="item.original_line_price > item.final_line_price" id="w-node-_3f61db21-129c-484c-c7db-5af0a16cea45-2048041f">
+    <div li-object="item.original_line_price | money" id="w-node-_71195821-f29a-eb19-64c4-f0623c97c5cd-2048041f" class="text-size-regular text-style-strikethrough">{{ item.original_line_price | money }}</div>    </div>
+{% endif %}</div>
+                        </div>
+{% endfor %}</div><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b0a-2048041f" class="cart_wrapper-right"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b0b-2048041f" class="cart_table outline-solid-1"><div class="cart_grid is-header w-hidden-tiny"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b0d-2048041f" class="cart_table-header"><p class="text-size-regular">Zusammenfassung</p></div></div><div class="cart_content"><div class="cart_wrapper"><div class="cart_details-wrapper"><div class="text-size-regular">Summe <span class="text-size-tiny">(inkl. Mwst.)</span></div><div class="cart_details-price">{% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0">
+    <div li-object="cart.original_total_price | money" class="text-style-strikethrough">{{ cart.original_total_price | money }}</div>    </div>
+{% endif %}<div li-object="cart.total_price | money" class="heading-style-h3">{{ cart.total_price | money }}</div></div></div>{% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0" class="cart_details-wrapper">
+    <div class="text-size-regular">Rabatt</div><div li-object="cart.total_discount | money">{{ cart.total_discount | money }}</div>    </div>
+{% endif %}</div><div class="cart_action"><input type="submit" data-wait="Please wait..." class="button w-button" value="Checkout" name="checkout">
+<input type="submit" data-wait="Please wait..." class="button is-outline w-button" value="Update cart">
+</div></div></div><div class="cart_table outline-solid-1"><div class="cart_grid is-header w-hidden-tiny"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b23-2048041f" class="cart_table-header"><p class="text-size-regular">Kommentar</p></div></div><div class="cart_content"><div class="form_field-wrapper"><textarea class="form_input is-text-area w-input" maxlength="5000" name="note" data-name="field" placeholder="Möchtest du etwas los werden?" id="CartNote"></textarea></div></div></div></div>{% endform %}
+<div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div>    </div>
+{% endif %}{% if cart.item_count == 0 %}    <div li-if="cart.item_count == 0" class="cart_empty outline-solid-1">
+    <div>
+{{ section.settings.text_cart_empty }}
+</div>
+<a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="button w-button">Jetzt Shoppen</a>    </div>
+{% endif %}</div>    </div>
+{% endif %}<div class="hide">
+{{ section.settings.text_tag }}
+</div>
+<div class="hide">
+{{ section.settings.text_tag_2 }}
+</div>
+ {% schema %} {"tag":"section","name":"Cart","class":"section_account background-color-primary","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Warenkorb"},{"id":"text_cart_empty","type":"text","label":"Cart Empty","default":"Dein Warenkorb ist leer."},{"id":"text_tag","type":"text","label":"Tag","default":"MOTO Service"},{"id":"text_tag_2","type":"text","label":"Tag-2","default":"MTB Service"}],"presets":[{"name":"Cart","category":"Liquify","blocks":[]}]} {% endschema %}

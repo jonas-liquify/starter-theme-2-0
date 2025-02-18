@@ -1,0 +1,17 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="location_component"><div class="intro-in-section is-on-black"><div class="heading-block"><div class="subheading">
+{{ section.settings.text_subheading }}
+</div>
+<h2 class="heading-style-h2 is-with-gradient">
+{{ section.settings.text_heading }}
+</h2>
+<p>
+{{ section.settings.text_text }}
+</p>
+</div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button is-primary"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><img loading="lazy" alt="{{ section.settings.image_bild.alt }}" src="{{ section.settings.image_bild | img_url: 'master' }}" class="location_img">
+</div></div></div> {% schema %} {"tag":"section","name":"Partner Map","class":"section_map","settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"id":"text_heading","type":"text","label":"Heading","default":"Top Service f\u00fcr Federgabel <span class=\"gradient-bar-h2\">und noch viel mehr<\/span>"},{"id":"text_text","type":"text","label":"Text","default":"Wir sind deine Experten f\u00fcr Federelemente. Professioneller Service f\u00fcr alle Federgabel- &amp; D\u00e4mpfermarken. Kompetente Beratung, einfache Abwicklung, schnelle Bearbeitung. In unserer Service &amp; Tuning Anfrage kannst du Leistungen individuell kombinieren. Ohne Termin, sofort los!"},{"id":"url_button_link_2","type":"url","label":"Button-Link 2"},{"id":"text_button_text_2","type":"text","label":"Button-Text 2","default":"Service anfragen"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"Service anfragen"},{"id":"image_bild","type":"image_picker","label":"Bild"}],"presets":[{"name":"Partner Map","category":"Liquify","blocks":[]}]} {% endschema %}

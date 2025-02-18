@@ -1,0 +1,48 @@
+<div class="padding-global padding-section-medium"><div class="container-large"><div class="product_component"><div class="intro-in-section"><div class="heading-block"><div class="subheading text-color-red">
+{{ section.settings.text_subheading }}
+</div>
+<h2 li-object="section.settings.text_heading" class="heading-style-h2">{{ section.settings.text_heading }}</h2><div><p li-object="section.settings.textarea_text">{{ section.settings.textarea_text }}</p></div><div class="li-custom w-embed"></div>
+</div><div class="button-group">{% if section.settings.text_button_text_2 != blank %}    <div li-if="section.settings.text_button_text_2 != blank">
+    <a href="{{ section.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ section.settings.text_button_text_2 }} </a>
+    </div>
+{% endif %}{% if section.settings.text_button_text != blank %}    <div li-if="section.settings.text_button_text != blank" class="button_first">
+    <a href="{{ section.settings.url_button_link }}" class="button w-button"> {{ section.settings.text_button_text }} </a>
+    </div>
+{% endif %}</div></div><div class="product_swiper-wrapper"><div class="swiper is-product-swiper"><div class="swiper-wrapper">{% for product in section.settings.product_list %}    <div li-for="product in section.settings.product_list" class="swiper-slide is-product-slide">
+                                    
+                            {% render 'product_item', product: product %}
+
+                            
+                        </div>
+{% endfor %}</div></div><div class="product_swiper-bottom"><div class="product_swiper-pagination"><div class="swiper-pagination-bullet"></div><div class="swiper-pagination-bullet swiper-pagination-bullet-active"></div></div><div class="swiper-pagination"><div class="swiper-prev product_swiper-prev"><div class="swiper-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.9265 19.626L0.296875 9.99633L9.9265 0.366699L11.6358 2.07596L3.71539 9.99633L11.6358 17.9167L9.9265 19.626Z" fill="currentColor"></path></svg></div></div><div class="swiper-next product_swiper-next"><div class="swiper-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00612 0.36623L11.6357 9.99586L2.00612 19.6255L0.296858 17.9162L8.21722 9.99586L0.296858 2.07549L2.00612 0.36623Z" fill="currentColor"></path></svg></div></div></div></div></div><div class="hide w-embed w-script"><script>const swiperProduct = new Swiper('.is-product-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      navigation: {
+        nextEl: '.product_swiper-next',
+        prevEl: '.product_swiper-prev',
+      },
+     pagination: {
+        el: ".product_swiper-pagination",
+        clickable: true
+      }
+      // Responsive breakpoints
+      /*breakpoints: {
+    // when window width is >= 320px
+    479: {
+     slidesPerView: 2,
+        spaceBetween: 50,
+    },
+    // when window width is >= 480px
+    767: {
+     slidesPerView: 2,
+        spaceBetween: 50,
+    },
+    // when window width is >= 640px
+    991: {
+      slidesPerView: 2,
+      spaceBetween: 50
+    }
+  },*/
+    })
+</script></div><div class="li-custom w-embed"></div>
+</div></div></div> {% schema %} {"tag":"section","name":"Products","class":"section_product","settings":[{"id":"text_subheading","type":"text","label":"Subheading","default":"\/\/ wir sind Rebound racing"},{"type":"html","id":"text_heading","label":"Headline","default":"Optimale Leistung f\u00fcr deine Federgabela"},{"type":"richtext","id":"textarea_text","label":"Text","default":"<p>Wir sind deine Experten f\u00fcr Federelemente. Professioneller Service f\u00fcr alle Federgabel- &amp; D\u00e4mpfermarken. Kompetente Beratung, einfache Abwicklung, schnelle Bearbeitung. In unserer Service &amp; Tuning Anfrage kannst du Leistungen individuell kombinieren. Ohne Termin, sofort los!<\/p>"},{"id":"url_button_link_2","type":"url","label":"Button-Link 2"},{"id":"text_button_text_2","type":"text","label":"Button-Text 2","default":"Service anfragen"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"Service anfragen"},{"type":"product_list","id":"product_list","label":"Products"}],"presets":[{"name":"Products","category":"Liquify","blocks":[]}]} {% endschema %}

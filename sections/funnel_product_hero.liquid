@@ -1,0 +1,250 @@
+<div class="padding-global padding-section-small"><div class="container-large"><div class="choose_main_slide"><div class="choose_main_top-wrapper"><div x-data=""><a x-on:click="history.back()" href="#" class="choose_main_back w-inline-block"><div class="icon-1x1-centered-small w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.52901 11.7998L5.72435 7.9951L9.52901 4.19043L10.4717 5.1331L7.60968 7.9951L10.4717 10.8571L9.52901 11.7998Z" fill="currentColor"></path></svg></div><div class="text-weight-medium text-size-small">
+{{ section.settings.text_zuruck }}
+</div>
+</a></div><h2 class="heading-style-h3">
+{{ section.settings.text_headline }}
+</h2>
+</div><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="choose_main_product" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div id="w-node-fb9e60a2-6628-6eeb-a038-85902bc96931-8d331af2" class="choose_main_left"><div class="choose_main_product-imgs"><div id="w-node-fb9e60a2-6628-6eeb-a038-85902bc96933-8d331af2" class="swiper-container is-product-gallery"><div class="swiper is-product-gallery"><div id="my-gallery" class="swiper-wrapper is-product-gallery">{% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-gallery">
+                                    
+                            <div class="product-header_gallery-lightbox"><img loading="lazy" li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" class="product-header_gallery-image">
+</div>
+                            
+                        </div>
+{% endfor %}</div></div><div class="product-header_slider-wrapper is-anfrage"><div class="swiper_button-wrapper is-product-slider pointer-events-off z-index-1 hide-mobile-landscape"><a aria-label="Previous Slide" href="#" class="swiper_button swiper-prev pointer-events-on w-inline-block"><div class="swiper_button-icon is-reversed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323"><g id="Group_44" data-name="Group 44" transform="translate(0 1.014)"><path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path><line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line></g></svg></div></a><a aria-label="Next Slide" href="#" class="swiper_button swiper-next pointer-events-on w-inline-block"><div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323"><g id="Group_44" data-name="Group 44" transform="translate(0 1.014)"><path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path><line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line></g></svg></div></a></div><div class="swiper is-product-thumbnail"><div class="swiper-wrapper is-product-thumbnail">{% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-thumbnail">
+                                    <img loading="lazy" li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" class="product_thumbnail-image is-anfrage">
+
+                        </div>
+{% endfor %}</div></div></div><div class="swiper-slide is-product-thumbnail is-active hide"></div></div></div><div class="product-header_grid">{% for block in section.blocks %}
+    {% if block.type == "info-item" %}
+                    <div li-block="Info Item" id="w-node-fb9e60a2-6628-6eeb-a038-85902bc96945-8d331af2" class="product-header_grid-item">
+                                    <img src="{{ block.settings.image_bild | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_bild.alt }}" class="product-header_grid-icon">
+
+                                    
+                                    <div>
+{{ block.settings.text_text }}
+</div>
+
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div><div class="choose_main_right"><div class="choose_main_block"><div class="product-header_product-content"><div class="choose_main_top"><div li-object="product.vendor" class="product-header_vendor">{{ product.vendor }}</div><h1 li-object:text="product.title" class="heading-style-h2">
+{{ product.title }}
+</h1></div><div class="product-header_price-wrapper"><div li-js-price="product.selected_or_first_available_variant.price" class="heading-style-h4 text-weight-semibold" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">$55</div><template x-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+            <div li-js-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+        <div li-js-price="product.selected_or_first_available_variant.compare_at_price" class="text-size-regular text-style-strikethrough text-align-right text-style-muted" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.compare_at_price, true, '{{ shop.money_with_currency_format }}')">$55</div>        </div>
+    </template>
+<div class="product-header_tag-list"><template x-if="selected_or_first_available_variant.available != true">
+            <div li-js-if="selected_or_first_available_variant.available != true" class="product-item_tag">
+        Not in Stock        </div>
+    </template>
+<template x-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+            <div li-js-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price" class="product-item_tag is-red">
+        Sale        </div>
+    </template>
+</div></div><div class="text-size-small">inkl. VAT</div><div class="product-header_form-block w-form">{% form 'product', product, class: 'product-header_default-state is-choose' %}
+{% if product.tags contains 'MTB Service' or product.tags contains 'MOTO Service' %}    <input name="properties[Tag]" li-if="product.tags contains 'MTB Service' or product.tags contains 'MOTO Service'" class="hide" value="Service">
+{% endif %}{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_select">
+    <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" id="w-node-_60a6db7b-60ce-d5c2-0dbb-0d257b2d7633-8d331af2" class="product-header_option" data-ProductVariantsLoop="true"><div li-element="product-options-name" class="product-header_variant-title text-weight-semibold text-size-small text-style-allcaps" x-text="option">Variant</div><select type="select" li-element="product-option-select" class="select-field is-white" x-on:change="setVariant" :name="option" :data-name="option" data-selectorType="select"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <option li-element="product-option-select-loop" x-text="variantName" :value="variantName" :selected="selected_or_first_available_variant?.options.includes(variantName)"></option></template>
+
+</select></div></template>
+    </div>
+{% endif %}{% if product.selected_or_first_available_variant.available == true %}    <div li-if="product.selected_or_first_available_variant.available == true" class="product-header_availability">
+    <div class="product-header_dot"></div><div>Aktuelle Bearbeitungszeit: <span li-object="product.metafields.custom.bearbeitungszeit | default: settings.motorrad_bearbeitungsdauer">{{ product.metafields.custom.bearbeitungszeit | default: settings.motorrad_bearbeitungsdauer }}</span></div>    </div>
+{% endif %}{% if product.selected_or_first_available_variant.available == false %}    <div li-if="product.selected_or_first_available_variant.available == false" class="product-header_availability is-red">
+    <div class="product-header_dot is-red"></div><div>Aktuell nicht verfügbar</div>    </div>
+{% endif %}<div class="product-header_add-to-cart-wrapper"><div><template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        <a li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Zur Anfrage hinzufügen</a>        </div>
+    </template>
+</div><template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Not in Stock</a>        </div>
+    </template>
+</div>{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div><div class="product-header_open-white"><div class="faq_question"><div class="text-weight-semibold">
+{{ section.settings.text_opener_text }}
+</div>
+<div class="faq_icon"><div class="faq_icon-line"></div><div class="faq_icon-line is-vertical"></div></div></div><div class="faq_answer"><div class="faq_answer-wrapper"><div li-object="product.description" class="text-rich-text max-width-large w-richtext">{{ product.description }}</div></div></div><div class="li-custom w-embed"></div>
+</div></div></div><div class="choose_main_block"><div class="choose_main_top-more"><h2 class="heading-style-h4">
+{{ section.settings.text_more_headline }}
+</h2>
+<p>
+{{ section.settings.text_more_text }}
+</p>
+</div><div class="choose_main_more">{% for product in product.metafields.shopify--discovery--product_recommendation.complementary_products.value %}    <div li-for="product in product.metafields.shopify--discovery--product_recommendation.complementary_products.value" class="choose_main_more-item">
+                                    <img loading="lazy" li-object:src="product.featured_image.src | product_img_url: 'master'" li-object:alt="product.featured_image.alt" src="{{ product.featured_image.src | product_img_url: 'master' }}" alt="{{ product.featured_image.alt }}" class="choose_main_more-item-img">
+
+                            
+                            <div x-data="{ open: false }" class="choose_main_more-item-right"><div class="choose_main_more-item-content"><div><div li-object="product.title" class="text-weight-semibold text-size-small text-style-allcaps">{{ product.title }}</div><div class="choose_main_price-wrapper">{% unless product.has_only_default_variant %}    <div li-unless="product.has_only_default_variant">
+    <div class="text-size-small text-style-allcaps">ab </div>    </div>
+{% endunless %}<div li-object="product.price | money" class="text-size-small text-style-allcaps">{{ product.price | money }}</div></div><div class="spacer-xxsmall"></div><a x-on:click="open = true" href="#" class="text-weight-semibold text-size-small text-style-link">Mehr Informationen</a></div></div>{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true">
+    <a x-on:click="open = true" href="#" class="button is-black-long w-button">Hinzufügen</a>    </div>
+{% endif %}{% if product.has_only_default_variant == true %}    <div li-if="product.has_only_default_variant == true">
+    <script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<a li-element="direct-add-to-cart" href="#" class="button is-black-long w-button" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" @click="addToCart($event, true)">Hinzufügen</a>    </div>
+{% endif %}<div x-cloak="" x-show="open" class="choose_popup"><div class="choose_product-wrapper"><div class="padding-global"><div class="container-large"><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="w-layout-grid product-header_layout" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div id="w-node-_387d62b1-bd04-2056-7d01-33f4f099464d-f099464c" class="swiper-container is-product-gallery is-popup"><div class="swiper is-product-gallery"><div id="my-gallery" class="swiper-wrapper is-product-gallery">{% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-gallery">
+                                    
+                            <div class="product-header_gallery-lightbox"><img loading="lazy" li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" class="product-header_gallery-image">
+</div>
+                            
+                        </div>
+{% endfor %}</div></div><div class="product-header_slider-wrapper"><div class="swiper_button-wrapper is-product-slider pointer-events-off z-index-1 hide-mobile-landscape"><a aria-label="Previous Slide" href="#" class="swiper_button swiper-prev pointer-events-on w-inline-block"><div class="swiper_button-icon is-reversed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323"><g id="Group_44" data-name="Group 44" transform="translate(0 1.014)"><path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path><line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line></g></svg></div></a><a aria-label="Next Slide" href="#" class="swiper_button swiper-next pointer-events-on w-inline-block"><div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323"><g id="Group_44" data-name="Group 44" transform="translate(0 1.014)"><path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path><line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line></g></svg></div></a></div><div class="swiper is-product-thumbnail"><div class="swiper-wrapper is-product-thumbnail">{% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-thumbnail">
+                                    <img loading="lazy" li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" class="product_thumbnail-image">
+
+                        </div>
+{% endfor %}</div></div></div><div class="swiper-slide is-product-thumbnail is-active hide"></div></div><div id="w-node-_387d62b1-bd04-2056-7d01-33f4f099465e-f099464c" class="product-header_product-details"><div class="product-header_product-content"><div li-object="product.vendor" class="product-header_vendor">{{ product.vendor }}</div><h2 li-object:text="product.title" class="heading-style-h2">
+{{ product.title }}
+</h2><div class="product-header_price-wrapper"><div li-js-price="price" class="heading-style-h4 text-weight-semibold" x-text="LiquifyHelper.moneyFormat(price, true, '{{ shop.money_with_currency_format }}')">$55</div><template x-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+            <div li-js-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+        <div li-object="product.compare_at_price | money" class="text-size-regular text-style-strikethrough text-align-right text-style-muted">{{ product.compare_at_price | money }}</div>        </div>
+    </template>
+<div class="product-header_tag-list"><template x-if="selected_or_first_available_variant.available != true">
+            <div li-js-if="selected_or_first_available_variant.available != true" class="product-item_tag">
+        Not in Stock        </div>
+    </template>
+<template x-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+            <div li-js-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price" class="product-item_tag is-red">
+        Sale        </div>
+    </template>
+</div></div><div class="text-size-small">
+{{ section.settings.text_inklusive_mwst }}
+</div>
+<div class="product-header_shipping-wrapper"><div class="product-header_availability-wrapper"><template x-if="selected_or_first_available_variant.available == true">
+            <div li-js-if="selected_or_first_available_variant.available == true" class="product-header_availability">
+        <div class="product-header_dot"></div><div>Aktuelle Lieferzeit: 2-3 Werktage</div>        </div>
+    </template>
+<template x-if="selected_or_first_available_variant.available == false">
+            <div li-js-if="selected_or_first_available_variant.available == false" class="product-header_availability is-red">
+        <div class="product-header_dot is-red"></div><div>Aktuell nicht verfügbar</div>        </div>
+    </template>
+</div></div><div class="product-header_form-block w-form">{% form 'product', product, class: 'product-header_default-state' %}
+{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_select">
+    <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" id="w-node-e8bced40-5328-e5be-9cc6-0dde96aefb72-f099464c" class="product-header_option" data-ProductVariantsLoop="true"><div li-element="product-options-name" class="product-header_variant-title text-weight-semibold text-size-small text-style-allcaps" x-text="option">Variant</div><select type="select" li-element="product-option-select" class="select-field" x-on:change="setVariant" :name="option" :data-name="option" data-selectorType="select"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <option li-element="product-option-select-loop" x-text="variantName" :value="variantName" :selected="selected_or_first_available_variant?.options.includes(variantName)"></option></template>
+
+</select></div></template>
+    </div>
+{% endif %}<div class="product-header_add-to-cart-wrapper"><div><template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        <a x-on:click="addToCart($event, true), open = false" href="#" class="button max-width-full w-button">Zum Warenkorb hinzufügen</a>        </div>
+    </template>
+</div><template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Not in Stock</a>        </div>
+    </template>
+</div>{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div><div data-w-id="387d62b1-bd04-2056-7d01-33f4f09946a3" class="product-header_open"><div class="faq_question"><div class="text-weight-semibold">
+{{ section.settings.text_opener_text }}
+</div>
+<div class="faq_icon"><div class="faq_icon-line"></div><div class="faq_icon-line is-vertical"></div></div></div><div class="faq_answer"><div class="faq_answer-wrapper"><div li-object="product.description" class="text-rich-text max-width-large w-richtext">{{ product.description }}</div></div></div><div class="li-custom w-embed"></div>
+</div></div></div></div></div></div><img src="{{ 'close-icon.svg' | asset_url }}" loading="lazy" x-on:click="open = false" alt="" class="choose_close">
+</div></div></div>
+                            
+                        </div>
+{% endfor %}<div class="choose_main_show-more hide"><div>Mehr anzeigen</div><div class="choose_main_show-icon-wrapper"><div class="choose_main_show-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_7404_5546" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="19" height="19"><rect x="0.491211" y="0.52002" width="18.4713" height="18.4713" fill="currentColor"></rect></mask><g mask="url(#mask0_7404_5546)"></g><path d="M10.2708 12.7466L9.72559 13.2919L9.18034 12.7466L5.45446 9.02072C5.38215 8.94842 5.34153 8.85035 5.34153 8.7481C5.34153 8.64585 5.38215 8.54778 5.45446 8.47547C5.52676 8.40317 5.62483 8.36255 5.72708 8.36255C5.82934 8.36255 5.9274 8.40317 5.99971 8.47547L9.72559 12.2014L13.4515 8.47547C13.5238 8.40317 13.6218 8.36255 13.7241 8.36255C13.8263 8.36255 13.9244 8.40317 13.9967 8.47547C14.069 8.54778 14.1096 8.64585 14.1096 8.7481C14.1096 8.85035 14.069 8.94842 13.9967 9.02072L10.2708 12.7466Z" fill="currentColor"></path></svg></div></div></div></div></div>{% if product.metafields.custom.tuning_product_2 != blank %}    <div li-if="product.metafields.custom.tuning_product_2 != blank" class="choose_main_add">
+    {% assign product = product.metafields.custom.tuning_product_2.value %}
+<div class="choose_main_header"><h2 class="heading-style-h4">
+{{ section.settings.text_headline_tuning }}
+</h2>
+<div class="choose_main_add-icon hide"><div class="icon-1x1-centered-small w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.7693 7.74816C15.7693 7.87341 15.7195 7.99354 15.6309 8.0821C15.5424 8.17067 15.4223 8.22042 15.297 8.22042H8.84274V14.6747C8.84274 14.7999 8.79298 14.9201 8.70442 15.0086C8.61585 15.0972 8.49573 15.147 8.37047 15.147C8.24522 15.147 8.1251 15.0972 8.03653 15.0086C7.94797 14.9201 7.89821 14.7999 7.89821 14.6747V8.22042H1.44394C1.31869 8.22042 1.19857 8.17067 1.11 8.0821C1.02144 7.99354 0.97168 7.87341 0.97168 7.74816C0.97168 7.62291 1.02144 7.50279 1.11 7.41422C1.19857 7.32565 1.31869 7.2759 1.44394 7.2759H7.89821V0.821629C7.89821 0.696377 7.94797 0.576255 8.03653 0.487688C8.1251 0.399121 8.24522 0.349365 8.37047 0.349365C8.49573 0.349365 8.61585 0.399121 8.70442 0.487688C8.79298 0.576255 8.84274 0.696377 8.84274 0.821629V7.2759H15.297C15.4223 7.2759 15.5424 7.32565 15.6309 7.41422C15.7195 7.50279 15.7693 7.62291 15.7693 7.74816Z" fill="currentColor"></path></svg></div></div></div><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="product-header_product-content is-tuning" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div class="product-header_form-block w-form">{% form 'product', product, class: 'product-header_default-state is-choose' %}
+{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_select">
+    <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" id="w-node-_1b726c6f-0272-4e14-6587-2f0d7d9c7d3b-8d331af2" class="product-header_option" data-ProductVariantsLoop="true"><div li-element="product-options-name" class="product-header_variant-title text-weight-semibold text-size-small text-style-allcaps" x-text="option">Variant</div><select type="select" li-element="product-option-select" class="select-field is-white" x-on:change="setVariant" :name="option" :data-name="option" data-selectorType="select"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <option li-element="product-option-select-loop" x-text="variantName" :value="variantName" :selected="selected_or_first_available_variant?.options.includes(variantName)"></option></template>
+
+</select></div></template>
+    </div>
+{% endif %}{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div>{% if product.description != blank  %}    <div li-if="product.description != blank " class="product-header_open-white">
+    <div class="faq_question"><div class="text-weight-semibold">
+{{ section.settings.text_opener_text }}
+</div>
+<div class="faq_icon"><div class="faq_icon-line"></div><div class="faq_icon-line is-vertical"></div></div></div><div class="faq_answer">{% if product.description != blank %}    <div li-if="product.description != blank" class="faq_answer-wrapper">
+    <div li-object="product.description" class="text-rich-text max-width-large w-richtext">{{ product.description }}</div>    </div>
+{% endif %}</div><div class="li-custom w-embed"></div>
+    </div>
+{% endif %}{% for variant in product.variants %}    <div x-show="selected_product_id === {{ variant.id }}" li-for="variant in product.variants" class="choose_main_more">
+                                    
+                            {% for upsell in variant.metafields.custom.complementary_variant_product.value %}    <div li-for="upsell in variant.metafields.custom.complementary_variant_product.value" class="choose_main_more-item">
+                                    
+                            {% assign product = upsell.product %}
+
+                            <img loading="lazy" li-object:src="upsell.product.featured_image.src | product_img_url: 'master'" li-object:alt="upsell.featured_image.alt" src="{{ upsell.product.featured_image.src | product_img_url: 'master' }}" alt="{{ upsell.featured_image.alt }}" class="choose_main_more-item-img">
+
+                            
+                            <div x-data="{ open: false }" class="choose_main_more-item-right"><div class="choose_main_more-item-content"><div><div li-object="upsell.product.title" class="text-weight-semibold text-size-small text-style-allcaps">{{ upsell.product.title }}</div><div li-object="upsell.price | money" class="text-size-small text-style-allcaps">{{ upsell.price | money }}</div><div class="spacer-xxsmall"></div><a x-on:click="open = true" href="#" class="text-weight-semibold text-size-small text-style-link">Mehr Informationen</a></div></div><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<a li-element="direct-add-to-cart" href="#" class="button is-black-long w-button" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" @click="addToCart($event, true)">Hinzufügen</a><div x-cloak="" x-show="open" class="choose_popup"><div class="choose_product-wrapper"><div class="padding-global"><div class="container-large"><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="w-layout-grid product-header_layout" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div id="w-node-_387d62b1-bd04-2056-7d01-33f4f099464d-f099464c" class="swiper-container is-product-gallery is-popup"><div class="swiper is-product-gallery"><div id="my-gallery" class="swiper-wrapper is-product-gallery">{% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-gallery">
+                                    
+                            <div class="product-header_gallery-lightbox"><img loading="lazy" li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" class="product-header_gallery-image">
+</div>
+                            
+                        </div>
+{% endfor %}</div></div><div class="product-header_slider-wrapper"><div class="swiper_button-wrapper is-product-slider pointer-events-off z-index-1 hide-mobile-landscape"><a aria-label="Previous Slide" href="#" class="swiper_button swiper-prev pointer-events-on w-inline-block"><div class="swiper_button-icon is-reversed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323"><g id="Group_44" data-name="Group 44" transform="translate(0 1.014)"><path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path><line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line></g></svg></div></a><a aria-label="Next Slide" href="#" class="swiper_button swiper-next pointer-events-on w-inline-block"><div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323"><g id="Group_44" data-name="Group 44" transform="translate(0 1.014)"><path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path><line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line></g></svg></div></a></div><div class="swiper is-product-thumbnail"><div class="swiper-wrapper is-product-thumbnail">{% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-thumbnail">
+                                    <img loading="lazy" li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" class="product_thumbnail-image">
+
+                        </div>
+{% endfor %}</div></div></div><div class="swiper-slide is-product-thumbnail is-active hide"></div></div><div id="w-node-_387d62b1-bd04-2056-7d01-33f4f099465e-f099464c" class="product-header_product-details"><div class="product-header_product-content"><div li-object="product.vendor" class="product-header_vendor">{{ product.vendor }}</div><h2 li-object:text="product.title" class="heading-style-h2">
+{{ product.title }}
+</h2><div class="product-header_price-wrapper"><div li-js-price="price" class="heading-style-h4 text-weight-semibold" x-text="LiquifyHelper.moneyFormat(price, true, '{{ shop.money_with_currency_format }}')">$55</div><template x-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+            <div li-js-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+        <div li-object="product.compare_at_price | money" class="text-size-regular text-style-strikethrough text-align-right text-style-muted">{{ product.compare_at_price | money }}</div>        </div>
+    </template>
+<div class="product-header_tag-list"><template x-if="selected_or_first_available_variant.available != true">
+            <div li-js-if="selected_or_first_available_variant.available != true" class="product-item_tag">
+        Not in Stock        </div>
+    </template>
+<template x-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+            <div li-js-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price" class="product-item_tag is-red">
+        Sale        </div>
+    </template>
+</div></div><div class="text-size-small">
+{{ section.settings.text_inklusive_mwst }}
+</div>
+<div class="product-header_shipping-wrapper"><div class="product-header_availability-wrapper"><template x-if="selected_or_first_available_variant.available == true">
+            <div li-js-if="selected_or_first_available_variant.available == true" class="product-header_availability">
+        <div class="product-header_dot"></div><div>Aktuelle Lieferzeit: 2-3 Werktage</div>        </div>
+    </template>
+<template x-if="selected_or_first_available_variant.available == false">
+            <div li-js-if="selected_or_first_available_variant.available == false" class="product-header_availability is-red">
+        <div class="product-header_dot is-red"></div><div>Aktuell nicht verfügbar</div>        </div>
+    </template>
+</div></div><div class="product-header_form-block w-form">{% form 'product', product, class: 'product-header_default-state' %}
+{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_select">
+    <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" id="w-node-e8bced40-5328-e5be-9cc6-0dde96aefb72-f099464c" class="product-header_option" data-ProductVariantsLoop="true"><div li-element="product-options-name" class="product-header_variant-title text-weight-semibold text-size-small text-style-allcaps" x-text="option">Variant</div><select type="select" li-element="product-option-select" class="select-field" x-on:change="setVariant" :name="option" :data-name="option" data-selectorType="select"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <option li-element="product-option-select-loop" x-text="variantName" :value="variantName" :selected="selected_or_first_available_variant?.options.includes(variantName)"></option></template>
+
+</select></div></template>
+    </div>
+{% endif %}<div class="product-header_add-to-cart-wrapper"><div><template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        <a x-on:click="addToCart($event, true), open = false" href="#" class="button max-width-full w-button">Zum Warenkorb hinzufügen</a>        </div>
+    </template>
+</div><template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Not in Stock</a>        </div>
+    </template>
+</div>{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div><div data-w-id="387d62b1-bd04-2056-7d01-33f4f09946a3" class="product-header_open"><div class="faq_question"><div class="text-weight-semibold">
+{{ section.settings.text_opener_text }}
+</div>
+<div class="faq_icon"><div class="faq_icon-line"></div><div class="faq_icon-line is-vertical"></div></div></div><div class="faq_answer"><div class="faq_answer-wrapper"><div li-object="product.description" class="text-rich-text max-width-large w-richtext">{{ product.description }}</div></div></div><div class="li-custom w-embed"></div>
+</div></div></div></div></div></div><img src="{{ 'close-icon.svg' | asset_url }}" loading="lazy" x-on:click="open = false" alt="" class="choose_close">
+</div></div></div>
+                            
+                        </div>
+{% endfor %}
+                            
+                            <div class="choose_main_show-more hide"><div>Mehr anzeigen</div><div class="choose_main_show-icon-wrapper"><div class="choose_main_show-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_7404_5546" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="19" height="19"><rect x="0.491211" y="0.52002" width="18.4713" height="18.4713" fill="currentColor"></rect></mask><g mask="url(#mask0_7404_5546)"></g><path d="M10.2708 12.7466L9.72559 13.2919L9.18034 12.7466L5.45446 9.02072C5.38215 8.94842 5.34153 8.85035 5.34153 8.7481C5.34153 8.64585 5.38215 8.54778 5.45446 8.47547C5.52676 8.40317 5.62483 8.36255 5.72708 8.36255C5.82934 8.36255 5.9274 8.40317 5.99971 8.47547L9.72559 12.2014L13.4515 8.47547C13.5238 8.40317 13.6218 8.36255 13.7241 8.36255C13.8263 8.36255 13.9244 8.40317 13.9967 8.47547C14.069 8.54778 14.1096 8.64585 14.1096 8.7481C14.1096 8.85035 14.069 8.94842 13.9967 9.02072L10.2708 12.7466Z" fill="currentColor"></path></svg></div></div></div>
+                            
+                        </div>
+{% endfor %}</div>    </div>
+{% endif %}</div></div></div></div></div> {% schema %} {"tag":"div","name":"Funnel - Product-Her","class":"section_product-header","blocks":[{"name":"Info Item","type":"info-item","settings":[{"id":"image_bild","type":"image_picker","label":"Bild"},{"id":"text_text","type":"text","label":"Text","default":"mehr als 500 Rapire pro Jahr"}]}],"settings":[{"id":"text_zuruck","type":"text","label":"Zur\u00fcck","default":"Zur\u00fcck"},{"id":"text_headline","type":"text","label":"Headline","default":"Welchen Service ben\u00f6tigen sie?"},{"id":"text_opener_text","type":"text","label":"Opener Text","default":"Mehr Informationen"},{"type":"text","id":"kategorie","label":"Kategorie","default":"Alle FAQs"},{"id":"text_more_headline","type":"text","label":"More Headline","default":"Heading"},{"id":"text_more_text","type":"text","label":"More Text","default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere."},{"id":"text_inklusive_mwst","type":"text","label":"Inklusive Mwst.","default":"inkl. VAT"},{"id":"text_headline_tuning","type":"text","label":"Headline Tuning","default":"Tuning-Service hinzuf\u00fcgen"}],"presets":[{"name":"Funnel - Product-Her","category":"Liquify","blocks":[{"type":"info-item"}]}]} {% endschema %}

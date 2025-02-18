@@ -1,0 +1,20 @@
+{
+    "sections": {
+        "funnel_product_hero": {
+            "type": "funnel_product_hero"
+        },
+        "faq": {
+            "type": "faq"
+        },
+        "product_recommended": {
+            "type": "product_recommended"
+        }
+    },
+    "layout": "product.anfrage-service-und-tuning",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "funnel_product_hero",
+        "faq",
+        "product_recommended"
+    ]
+}
