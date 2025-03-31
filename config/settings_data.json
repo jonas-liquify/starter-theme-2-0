@@ -8,5 +8,32 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {}
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "text_search": "Search",
+          "collection_search_bestseller": "",
+          "collection_search_bestseller_limit": 6,
+          "menu": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "text_newsletter_headline": "Signup for Newsletter",
+          "text_checkbox": "By subscribing you agree to with our <a href=\"#\"><span class=\"text-color-white text-style-link\">Privacy Policy</span></a> and provide consent to receive updates from our company.",
+          "text_delivery": "Delivery",
+          "text_payment_method": "Payment Method",
+          "text_social_media": "Social Media",
+          "footer_menu": "footer",
+          "legal_menu": "main-menu",
+          "placeholder_text": "Your E-Mail-Address",
+          "redircet_url": ""
+        }
+      }
+    },
+    "content_for_index": []
+  }
 }
