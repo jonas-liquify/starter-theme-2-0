@@ -45,6 +45,7 @@
         "text_button_text": "All Articles",
         "url_button_link": "",
         "article_article": "news/test-1",
+        "image_artikel_1_bild": "{{ section.settings.article_article.image }}",
         "blog_blog": "news",
         "post_limit_blog": 3
       }
