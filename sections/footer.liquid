@@ -1,0 +1,94 @@
+<div class="padding-global padding-section-small"><div class="container-large"><div class="footer_main-wrapper"><div class="footer_link-grid">{% for link in linklists[section.settings.footer_menu].links %}    <div li-for="link in linklists[section.settings.footer_menu].links" class="footer_link-column">
+                                    
+                            <div li-object="link.title" class="text-weight-semibold">{{ link.title }}</div>
+                            
+                            <div li-for:inside="child_link in link.links" class="footer_link-list">
+        {% for child_link in link.links %}                            
+                            <a li-object:href="child_link.url" li-object="child_link.title" href="{{ child_link.url }}" class="footer_link">{{ child_link.title }}</a>
+                            
+                    {% endfor %}    </div>
+
+                            
+                        </div>
+{% endfor %}</div><div id="w-node-_946c4dcd-3bf7-2b09-3073-715a0eb0badd-cf39daf1" class="footer_newsletter"><h2 class="heading-style-h2 text-color-white">
+{{ section.settings.text_newsletter_headline }}
+</h2>
+<div class="footer_form-block w-form">{% form 'customer', return_to: 'section.settings.redircet_url', class: 'footer_form' %}
+<div class="form_field-wrapper"><label for="email" class="form_hidden-label">Your E-Mail-Address</label><input class="form_input is-white w-input" maxlength="256" name="contact[email]" data-name="email" placeholder="{{ section.settings.placeholder_text }}" type="email" id="email" required="">
+</div><div li-object="form.errors | default_errors" class="text-size-regular text-color-red">{{ form.errors | default_errors }}</div><div id="w-node-ced975e7-1b4d-f69e-9e83-8c61141236df-cf39daf1" class="hide w-embed"><input type="hidden" name="contact[accepts_marketing]" value="false">
+</div><label id="w-node-ced975e7-1b4d-f69e-9e83-8c61141236e0-cf39daf1" class="w-checkbox form_checkbox" name="contact[accepts_marketing]"><input type="checkbox" name="Accepts-Marketing" id="Accepts-Marketing" data-name="Accepts Marketing" class="w-checkbox-input form_checkbox-icon">
+<span class="form_checkbox-label text-size-tiny w-form-label" for="Accepts-Marketing">
+{{ section.settings.text_checkbox }}
+</span>
+</label><input type="submit" data-wait="" id="w-node-_8c754474-e4d5-bcc2-d22b-03af6f725bec-cf39daf1" class="button w-button" value="Subscribe to Newsletter">
+{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div></div></div><div class="footer_divider"></div><div class="padding-global padding-section-small"><div class="container-large"><div class="footer_icon-grid"><div class="footer_icon-block"><div class="text-size-regular text-color-white">
+{{ section.settings.text_delivery }}
+</div>
+<div class="footer_icon-row">{% for block in section.blocks %}
+    {% if block.type == "lieferung-icon" %}
+                    <div li-block="Lieferung-icon" class="footer_icon-item">
+                                    <img src="{{ block.settings.image_icon | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_icon.alt }}" class="footer_shipping-icon">
+
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div>{% if enabled_payment_types.length > 0 %}    <div li-if="enabled_payment_types.length > 0" id="w-node-_946c4dcd-3bf7-2b09-3073-715a0eb0baf2-cf39daf1" class="footer_icon-block">
+    <div class="text-size-regular text-color-white">
+{{ section.settings.text_payment_method }}
+</div>
+<ul role="list" class="footer_payment-list w-list-unstyled">{% for type in shop.enabled_payment_types %}    <li li-for="type in shop.enabled_payment_types" class="footer_payment-item">
+                                    
+                            <div li-object="type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color'" class="footer_payment-svg">{{ type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color' }}</div>
+                            
+                        </li>
+{% endfor %}</ul>    </div>
+{% endif %}<div class="footer_icon-block"><div class="text-size-regular text-color-white">
+{{ section.settings.text_social_media }}
+</div>
+<div class="footer_icon-row">{% for block in section.blocks %}
+    {% if block.type == "social-media" %}
+                    <div li-block="Social-media" class="footer_icon-item">
+                                    
+                                    <a href="{{ block.settings.url_social_link }}" target="_blank" class="footer_social-link w-inline-block"> <img src="{{ block.settings.image_social_icon | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_social_icon.alt }}" class="footer_social-icon"> </a>
+
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div></div></div></div><div class="footer_divider"></div><div class="padding-global padding-section-small"><div class="container-large"><div class="footer_sub-footer"><a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="footer_logo-link w-inline-block"><div class="footer_logo w-embed"><svg width="100%" height="100%" viewbox="0 0 88 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.03665 0.5H6.2873L4.5935 14.2459C4.60973 14.6129 4.5414 15.0368 4.47246 15.4645C4.27512 16.6887 4.07278 17.9439 5.83424 17.9864C6.66203 18.0067 6.66203 18.6848 6.63759 18.9536L6.44396 20.941C6.42579 21.1296 6.26474 21.2738 6.07174 21.2738H3.59151H3.52948V21.2695C1.82941 21.169 0.557968 19.6791 0.764131 18.0073L2.21417 5.55476C2.33949 2.22602 4.2194 0.5 6.03665 0.5ZM66.9162 6.8354L63.8219 6.86992C63.536 7.01597 61.7752 10.8012 60.6086 13.309L60.6085 13.3093C60.0419 14.5272 59.6156 15.4437 59.5664 15.4957C59.4812 15.6868 59.1942 15.651 59.1623 15.4445C59.2411 15.4317 58.0991 11.294 57.477 9.03997L57.4769 9.03962L57.4764 9.038C57.2585 8.2483 57.1045 7.69024 57.0893 7.62258C56.9678 7.17875 56.5605 6.8693 56.0936 6.86622L51.9973 6.83725C51.4885 6.92724 52.1057 4.71178 52.1972 4.54658C52.754 3.13928 53.7629 3.08194 54.5897 3.03496C55.1438 3.00347 55.616 2.97663 55.8154 2.55118L56.0961 0.944134C52.1402 0.216741 50.4952 1.90885 50.4952 1.90885C49.1417 3.06713 48.5784 4.8739 48.4606 6.64923C48.4474 6.75526 48.3559 6.8354 48.2475 6.8354L46.3576 6.89704C46.3294 6.91122 46.204 8.57559 46.204 8.57559C46.0758 9.23444 46.7219 9.22956 47.3151 9.22507C47.5422 9.22336 47.7615 9.2217 47.9267 9.25737L46.2999 24.3132C48.193 24.1923 49.9758 22.9114 50.1963 21.0331L51.5524 9.47928C51.5649 9.37264 51.657 9.29189 51.7661 9.2925L54.0539 9.29867C54.1504 9.29867 54.235 9.36278 54.2607 9.45463L57.1363 19.8446C57.2025 19.9691 56.1554 22.6057 55.4381 24.4118L55.4381 24.4118C55.0752 25.3255 54.7967 26.0266 54.7896 26.0823H55.9689C57.3613 26.0823 58.6371 25.3173 59.2744 24.0993L67.1099 7.14423C67.1851 7.00245 67.0792 6.83355 66.9169 6.8354H66.9162ZM41.7791 3.31253C41.8154 5.71416 45.386 5.66608 45.4674 3.31253C45.4255 0.896728 41.8248 0.886865 41.7791 3.31253ZM41.6923 6.84924L44.576 6.90164V6.90102C44.8442 6.90595 45.0498 7.07547 45.0197 7.33746L43.8216 17.7016C43.5872 19.623 41.9304 21.0691 39.9634 21.0691L41.6923 6.84924ZM9.5076 3.49754C9.54395 5.89917 13.1145 5.85109 13.196 3.49754C13.154 1.08173 9.55335 1.07187 9.5076 3.49754ZM9.48287 6.84924L12.3666 6.90164L12.366 6.90102C12.6342 6.90595 12.8398 7.13711 12.8097 7.3991L11.5489 17.8865C11.3283 19.6976 9.84318 21.0864 8.02594 21.2399C7.85236 21.2547 7.70886 21.1067 7.72954 20.936L9.48287 6.84924ZM13.4577 13.6721C12.9551 16.1915 12.9025 19.7348 15.5294 20.9578C17.9168 21.9835 20.2567 20.4689 21.6303 18.4594L20.7135 25.7709C22.6918 25.7561 24.353 24.3019 24.598 22.3706L26.5268 6.85251C16.4386 5.80088 13.9947 10.9789 13.4577 13.6715V13.6721ZM22.8152 9.38667L22.4524 12.1723C22.255 13.6845 21.6942 15.1337 20.7862 16.3696C19.7397 17.7942 18.3486 18.8144 17.1323 17.7615C14.5255 15.5048 18.1261 8.78935 22.448 8.95887C22.6743 8.9675 22.8441 9.16599 22.8152 9.38667ZM30.1053 15.7953C29.4079 20.1356 33.602 18.3251 34.7588 15.865H34.76C35.4481 14.7885 35.6244 13.3942 35.7973 12.0266C36.117 9.49734 36.4252 7.05963 39.9385 6.89399L38.1789 21.0288C38.0564 21.0308 37.9384 21.033 37.8249 21.035C35.2583 21.0818 34.967 21.0871 35.2419 18.1957C33.6972 20.4068 31.0253 21.9917 28.4742 20.8753C26.6513 19.9211 26.3437 17.7623 26.6012 15.7953L27.6934 6.89399C31.4698 7.06077 30.8703 10.6796 30.3861 13.6023L30.3861 13.6024C30.2511 14.4175 30.125 15.1784 30.1053 15.7953Z" fill="white"></path><path d="M70.4008 18.0454V11.8436H72.7264C73.2029 11.8436 73.6026 11.9325 73.9256 12.1101C74.2506 12.2878 74.4959 12.532 74.6615 12.8429C74.829 13.1518 74.9128 13.5031 74.9128 13.8968C74.9128 14.2945 74.829 14.6478 74.6615 14.9566C74.4939 15.2655 74.2466 15.5088 73.9195 15.6864C73.5925 15.8621 73.1897 15.9499 72.7113 15.9499H71.1699V15.0263H72.5599C72.8385 15.0263 73.0666 14.9778 73.2443 14.8809C73.4219 14.784 73.5531 14.6508 73.6379 14.4812C73.7247 14.3116 73.7681 14.1168 73.7681 13.8968C73.7681 13.6767 73.7247 13.4829 73.6379 13.3153C73.5531 13.1478 73.4209 13.0176 73.2412 12.9247C73.0636 12.8298 72.8344 12.7824 72.5538 12.7824H71.5242V18.0454H70.4008ZM75.8034 18.0454V11.8436H78.129C78.6055 11.8436 79.0052 11.9264 79.3282 12.0919C79.6532 12.2575 79.8985 12.4896 80.0641 12.7884C80.2316 13.0852 80.3154 13.4314 80.3154 13.8271C80.3154 14.2248 80.2306 14.57 80.061 14.8628C79.8935 15.1535 79.6462 15.3786 79.3191 15.538C78.9921 15.6955 78.5903 15.7742 78.1139 15.7742H76.4575V14.8416H77.9625C78.2411 14.8416 78.4692 14.8032 78.6469 14.7265C78.8245 14.6478 78.9557 14.5337 79.0405 14.3843C79.1273 14.2329 79.1707 14.0472 79.1707 13.8271C79.1707 13.6071 79.1273 13.4193 79.0405 13.2639C78.9537 13.1064 78.8215 12.9873 78.6438 12.9065C78.4662 12.8238 78.237 12.7824 77.9564 12.7824H76.9268V18.0454H75.8034ZM79.0072 15.2352L80.5425 18.0454H79.2888L77.7808 15.2352H79.0072ZM86.8059 14.9445C86.8059 15.6127 86.6807 16.1851 86.4304 16.6615C86.1821 17.1359 85.8429 17.4993 85.4129 17.7517C84.9849 18.004 84.4994 18.1302 83.9564 18.1302C83.4133 18.1302 82.9268 18.004 82.4968 17.7517C82.0688 17.4973 81.7296 17.1329 81.4793 16.6585C81.231 16.182 81.1068 15.6107 81.1068 14.9445C81.1068 14.2763 81.231 13.705 81.4793 13.2305C81.7296 12.7541 82.0688 12.3897 82.4968 12.1374C82.9268 11.885 83.4133 11.7588 83.9564 11.7588C84.4994 11.7588 84.9849 11.885 85.4129 12.1374C85.8429 12.3897 86.1821 12.7541 86.4304 13.2305C86.6807 13.705 86.8059 14.2763 86.8059 14.9445ZM85.6764 14.9445C85.6764 14.4741 85.6027 14.0774 85.4553 13.7544C85.31 13.4294 85.1081 13.1841 84.8497 13.0186C84.5913 12.851 84.2935 12.7672 83.9564 12.7672C83.6192 12.7672 83.3214 12.851 83.063 13.0186C82.8046 13.1841 82.6017 13.4294 82.4544 13.7544C82.309 14.0774 82.2363 14.4741 82.2363 14.9445C82.2363 15.4149 82.309 15.8126 82.4544 16.1376C82.6017 16.4606 82.8046 16.7059 83.063 16.8735C83.3214 17.039 83.6192 17.1218 83.9564 17.1218C84.2935 17.1218 84.5913 17.039 84.8497 16.8735C85.1081 16.7059 85.31 16.4606 85.4553 16.1376C85.6027 15.8126 85.6764 15.4149 85.6764 14.9445Z" fill="url(#paint0_linear_2827_5225)"></path><defs><lineargradient id="paint0_linear_2827_5225" x1="70.3605" y1="9.99967" x2="91.9079" y2="12.2574" gradientunits="userSpaceOnUse"><stop stop-color="#0154F5"></stop><stop offset="1" stop-color="#2DF0B3"></stop></lineargradient></defs></svg></div></a><div li-for:inside="link in linklists[section.setting.legal_menu].links" id="w-node-_946c4dcd-3bf7-2b09-3073-715a0eb0bb05-cf39daf1" class="footer_legal-links">
+        {% for link in linklists[section.setting.legal_menu].links %}                            
+                            <a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="footer_legal-link">{{ link.title }}</a>
+                            
+                    {% endfor %}    </div>
+{% if localization.available_languages.size > 1 %}    <localization-form li-if="localization.available_languages.size > 1" class="li-lang_wrapper">
+    {% form 'localization', class: 'li-lang_form' %}
+<div data-hover="true" data-delay="500" class="li-lang_dropdown w-dropdown"><div lang="{{ language.iso_code }}" class="li-lang_dd-toggle w-dropdown-toggle"><div li-object="localization.language.endonym_name | capitalize">{{ localization.language.endonym_name | capitalize }}</div><img src="https://uploads-ssl.webflow.com/613f2f905ede8d670775fc8a/61548248f37f3a0faab19498_arrow-drop.svg" loading="lazy" alt="" class="li-lang_dd-toggle-icon">
+</div><nav li-for:inside="language in localization.available_languages" class="li-lang_dd-list w-dropdown-list">
+        {% for language in localization.available_languages %}                            
+                            {% unless localization.language.iso_code == language.iso_code %}    <div li-unless="localization.language.iso_code == language.iso_code" class="li-lang_dd-list-item">
+    <a href="#" li-object="language.endonym_name | capitalize" lang="{{ language.iso_code }}" hreflang="{{ language.iso_code }}" data-value="{{ language.iso_code }}" class="li-lang_dd-link w-dropdown-link">{{ language.endonym_name | capitalize }}</a>    </div>
+{% endunless %}
+                            
+                    {% endfor %}    </nav>
+</div><input type="hidden" name="language_code" class="li-lang_hidden-input" value="{{ localization.language.iso_code }}">
+{% endform %}
+<div class="li-lang_script w-embed w-script"><script>class LocalizationForm extends HTMLElement {
+                      constructor() {
+                        super();
+                        this.input = this.querySelector('input[name="language_code"], input[name="country_code"]');
+                        this.querySelectorAll('a').forEach(item =>
+                          item.addEventListener('click', this.onItemClick.bind(this))
+                        );
+                      }
+                      onItemClick(event) {
+                        event.preventDefault();
+                        const form = this.querySelector('form');
+                        this.input.value = event.currentTarget.dataset.value;
+                        if (form) form.submit();
+                      }
+                    }
+                    customElements.define('localization-form', LocalizationForm);
+                  </script></div>    </localization-form>
+{% endif %}</div></div></div><div class="li-custom w-embed"></div>
+ {% schema %} {"tag":"footer","name":"footer","class":"section_footer","blocks":[{"name":"Lieferung-icon","type":"lieferung-icon","settings":[{"id":"image_icon","type":"image_picker","label":"icon"}]},{"name":"Social-media","type":"social-media","settings":[{"id":"url_social_link","type":"url","label":"Social-link"},{"id":"image_social_icon","type":"image_picker","label":"social-icon"}]}],"settings":[{"id":"text_newsletter_headline","type":"text","label":"Newsletter-Headline","default":"Signup for Newsletter"},{"id":"text_checkbox","type":"text","label":"Checkbox","default":"By subscribing you agree to with our <a href=\"#\"><span class=\"text-color-white text-style-link\">Privacy Policy<\/span><\/a> and provide consent to receive updates from our company."},{"id":"text_delivery","type":"text","label":"Delivery","default":"Delivery"},{"id":"text_payment_method","type":"text","label":"Payment Method","default":"Payment Method"},{"id":"text_social_media","type":"text","label":"Social Media","default":"Social Media"},{"type":"link_list","id":"footer_menu","label":"Footer Menu"},{"type":"link_list","id":"legal_menu","label":"Legal Menu"},{"type":"text","id":"placeholder_text","label":"Placeholder Text","default":"Your E-Mail-Address"},{"type":"url","id":"redircet_url","label":"Newsletter Redirect URL"}],"presets":[{"name":"footer","category":"Liquify","blocks":[{"type":"lieferung-icon"},{"type":"social-media"}]}]} {% endschema %}
