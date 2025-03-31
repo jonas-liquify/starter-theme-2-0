@@ -16,7 +16,7 @@
           "text_search": "Search",
           "collection_search_bestseller": "",
           "collection_search_bestseller_limit": 6,
-          "menu": ""
+          "menu": "main-menu"
         }
       },
       "footer": {
