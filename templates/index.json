@@ -44,7 +44,7 @@
         "text_headline": "Short heading here",
         "text_button_text": "All Articles",
         "url_button_link": "",
-        "article_article": "",
+        "article_article": "news/test-1",
         "blog_blog": "",
         "post_limit_blog": 3
       }
