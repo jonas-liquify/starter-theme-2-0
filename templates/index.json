@@ -45,7 +45,7 @@
         "text_button_text": "All Articles",
         "url_button_link": "",
         "article_article": "news/test-1",
-        "blog_blog": "",
+        "blog_blog": "news",
         "post_limit_blog": 3
       }
     }
