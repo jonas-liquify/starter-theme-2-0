@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "default": {
+            "type": "default"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "",
+    "order": [
+        "default"
+    ]
+}
