@@ -1,0 +1,28 @@
+{
+    "sections": {
+        "liquify_hero": {
+            "type": "liquify_hero"
+        },
+        "hero": {
+            "type": "hero"
+        },
+        "category": {
+            "type": "category"
+        },
+        "links": {
+            "type": "links"
+        },
+        "blog_teaser": {
+            "type": "blog_teaser"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "",
+    "order": [
+        "liquify_hero",
+        "hero",
+        "category",
+        "links",
+        "blog_teaser"
+    ]
+}
